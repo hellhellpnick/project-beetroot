@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body,
+a,
+button,
+input {
+  position: relative;
+  font-family: "Dosis", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  z-index: 0;
+}
+.container {
+  @extend %container;
+}

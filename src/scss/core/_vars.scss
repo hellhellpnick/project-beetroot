@@ -1,0 +1,36 @@
+//color
+$white: #fff;
+$blue: #2d88ff;
+$text: #2c3e50;
+$text-about: #8f8d8d;
+$link: #6b6b6b;
+$bg-color: #18191a;
+
+//font-family
+$base-font: "Dosis", sans-serif;
+
+//font-size
+@function calcRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+$H10: calcRem(12px);
+$H50: calcRem(15px);
+$H100: calcRem(20px);
+$H200: calcRem(24px);
+$H300: calcRem(32px);
+$H400: calcRem(56px);
+$H500: calcRem(96px);
+
+//width
+$max-width: 1200px;
+
+$screen-iphone: 375px;
+$screen-iphone-plus: 414px;
+$screen-tablet: 768px;
+$screen-desktop: 1024px;
+$screen-desktop-large: 1280px;
+$screen-hd: 1366px;
+$screen-fullhd: 1440px;
+$screen-retina: 1660px;
