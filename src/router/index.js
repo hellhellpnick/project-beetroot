@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Training from '../views/Training.vue'
+import Training2 from '../views/Training2.vue'
 import About from '../views/About.vue'
 import Movie from '../views/Movie.vue'
 import Posts from '../views/Posts.vue'
@@ -24,9 +26,19 @@ const routes = [
     component: Movie
   },
   {
-    path: '/posts',
+    path: '/posts:pid',
     name: 'Posts',
     component: Posts
+  },
+  {
+    path: '/training',
+    name: 'Training',
+    component: Training
+  },
+  {
+    path: '/training2',
+    name: 'Training2',
+    component: Training2
   }
 ]
 

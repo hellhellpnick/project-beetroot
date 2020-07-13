@@ -1,53 +1,58 @@
 <template>
-  <div class="movie animate__animated animate__zoomInDown">
-    <img
-      class="movie-absolute"
-      src="https://i.pinimg.com/originals/11/bc/53/11bc537ed061fa023703f398a701c0b3.jpg"
-    />
-    <div class="container container--movie">
-      <div class="movie-content">
-        <div class="movie-content__wrapper">
-          <span class="movie-content__svg-wrapper">
-            <svg class="movie-content__svg">
-              <use xlink:href="#logo" />
-            </svg>
-          </span>
-          <MovieTitle title="The witcher"></MovieTitle>
-        </div>
-        <div class="movie-content__wrapper">
-          <ListMovie date="2019" type="serial" rating="0.5"></ListMovie>
-        </div>
-      </div>
+  <section>
+    <loader v-if="loading" />
+    <template v-else>
+      <div class="movie animate__animated animate__zoomInDown">
+        <img
+          class="movie-absolute"
+          src="https://i.pinimg.com/originals/11/bc/53/11bc537ed061fa023703f398a701c0b3.jpg"
+        />
+        <div class="container container--movie">
+          <div class="movie-content">
+            <div class="movie-content__wrapper">
+              <span class="movie-content__svg-wrapper">
+                <svg class="movie-content__svg">
+                  <use xlink:href="#logo" />
+                </svg>
+              </span>
+              <MovieTitle title="The witcher"></MovieTitle>
+            </div>
+            <div class="movie-content__wrapper">
+              <ListMovie date="2019" type="serial" rating="0.5"></ListMovie>
+            </div>
+          </div>
 
-      <div class="movie-content">
-        <ListChoose></ListChoose>
-        <div class="movie-content__wrapper movie-content__wrapper--watch">
-          <p class="movie-content__text">| | |</p>
-          <h2 class="movie-content__subtitle">End's beginning</h2>
-          <Button name="watch now"></Button>
-        </div>
-        <MovieAbout
-          fulltext="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
+          <div class="movie-content">
+            <ListChoose></ListChoose>
+            <div class="movie-content__wrapper movie-content__wrapper--watch">
+              <p class="movie-content__text">| | |</p>
+              <h2 class="movie-content__subtitle">End's beginning</h2>
+              <Button name="watch now"></Button>
+            </div>
+            <MovieAbout
+              fulltext="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
               ullam architecto minima magnam sed est sapiente, aliquid nobis
               repellat deleniti sequi similique saepe voluptates, animi
               assumenda aperiam molestiae illoF Tempora?"
-          author="Four Markerk"
-          text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
+              author="Four Markerk"
+              text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
               ullam architecto minima magnam sed est sapiente, aliquid nobis
               repellat deleniti sequi similique saepe voluptates, animi
               assumenda aperiam molestiae illoF Tempora?"
-        ></MovieAbout>
-      </div>
+            ></MovieAbout>
+          </div>
 
-      <div class="movie-content__wrapper">
-        <MovieTrailer></MovieTrailer>
-        <VoiceActing name="Netflix"></VoiceActing>
-        <div class="movie-content__wrapper">
-          <ListLink></ListLink>
+          <div class="movie-content__wrapper">
+            <MovieTrailer></MovieTrailer>
+            <VoiceActing name="Netflix"></VoiceActing>
+            <div class="movie-content__wrapper">
+              <ListLink></ListLink>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </template>
+  </section>
 </template>
 <script>
 import ListChoose from '@/components/common/ListChoose'
@@ -69,7 +74,10 @@ export default {
     VoiceActing,
     MovieTitle,
     MovieAbout
-  }
+  },
+  data: () => ({
+    loading: false
+  })
 }
 </script>
 <style lang="scss">

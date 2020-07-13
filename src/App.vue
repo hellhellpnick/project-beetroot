@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link>
       <router-link to="/about">About me</router-link>
       <router-link to="/movie">Movie</router-link>
-      <router-link to="/posts">Posts</router-link>
+      <router-link to="/training">Training</router-link>
+      <router-link to="/training2">Training2</router-link>
     </div>
     <router-view />
     <svg style="display:none">
