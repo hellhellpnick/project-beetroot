@@ -1,18 +1,12 @@
 <template>
-  <input
-    type="text"
-    name="search"
-    class="input"
-    :value="value"
-    :input="searchMovie"
-    placeholder="film name"
-  />
+  <div class="input-wrapper">
+    <input type="text" name="search" class="input" placeholder="film name" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Input',
-  props: ['value']
+  name: 'Input'
 }
 </script>
 
@@ -28,12 +22,16 @@ export default {
   @include text($H50, 400, $white);
   text-transform: capitalize;
   &:focus {
-    width: 170px;
+    width: 180px;
     padding-left: 20px;
   }
   &::placeholder {
     @include text($H50, 400, $white);
     text-transform: capitalize;
+    font-style: italic;
   }
+}
+.input-wrapper {
+  width: 180px;
 }
 </style>

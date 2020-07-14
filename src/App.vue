@@ -1,15 +1,47 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About me</router-link>
-      <router-link to="/movie">Movie</router-link>
-      <router-link to="/training">Training</router-link>
-      <router-link to="/training2">Training2</router-link>
+    <div class="nav" id="nav">
+      <div class="menu-container">
+        <input type="checkbox" id="openmenu" class="hamburger-checkbox" />
+        <div class="hamburger">
+          <label for="openmenu" id="hamburger-label">
+            <span class="hamburger__item"></span>
+            <span class="hamburger__item"></span>
+            <span class="hamburger__item"></span>
+          </label>
+        </div>
+        <div class="menu-pane">
+          <nav>
+            <ul class="navigation">
+              <li class="navigation__item">
+                <router-link class="navigation__links" to="/">Home</router-link>
+              </li>
+
+              <li class="navigation__item">
+                <router-link class="navigation__links" to="/about">About me</router-link>
+              </li>
+              <li class="navigation__item">
+                <router-link class="navigation__links" to="/movie">Movie</router-link>
+              </li>
+              <li class="navigation__item">
+                <router-link class="navigation__links" to="/training">Training</router-link>
+              </li>
+              <li class="navigation__item">
+                <router-link class="navigation__links" to="/training2">Training2</router-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
     <router-view />
     <svg style="display:none">
-      <symbol id="logo" viewBox="0 0 512 512">
+      <symbol id="plus" viewBox="0 0 512 512">
+        <path
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </symbol>
+      <symbol id="logo" viewBox="0 0 448 512">
         <path
           d="M267.73 471.53l10.56 15.84 5.28-12.32 5.28 7V512c21.06-7.92 21.11-66.86 25.51-97.21 4.62-31.89-.88-92.81 81.37-149.11-8.88-23.61-12-49.43-2.64-80.05C421 189 447 196.21 456.43 239.73l-30.35 8.36c11.15 23 17 46.76 13.2 72.14L412 313.18l-6.16 33.43-18.47-7-8.8 33.39-19.35-7 26.39 21.11 8.8-28.15L419 364.2l7-35.63 26.39 14.52c.25-20 7-58.06-8.8-84.45l26.39 5.28c4-22.07-2.38-39.21-7.92-56.74l22.43 9.68c-.44-25.07-29.94-56.79-61.58-58.5-20.22-1.09-56.74-25.17-54.1-51.9 2-19.87 17.45-42.62 43.11-49.7-44 36.51-9.68 67.3 5.28 73.46 4.4-11.44 17.54-69.08 0-130.2-40.39 22.87-89.65 65.1-93.2 147.79l-58 38.71-3.52 93.25L369.78 220l7 7-17.59 3.52-44 38.71-15.84-5.28-28.1 49.25-3.52 119.64 21.11 15.84-32.55 15.84-32.55-15.84 21.11-15.84-3.52-119.64-28.15-49.26-15.84 5.28-44-38.71-17.58-3.51 7-7 107.33 59.82-3.52-93.25-58.06-38.71C185 65.1 135.77 22.87 95.3 0c-17.54 61.12-4.4 118.76 0 130.2 15-6.16 49.26-36.95 5.28-73.46 25.66 7.08 41.15 29.83 43.11 49.7 2.63 26.74-33.88 50.81-54.1 51.9-31.65 1.72-61.15 33.44-61.59 58.51l22.43-9.68c-5.54 17.53-11.91 34.67-7.92 56.74l26.39-5.28c-15.76 26.39-9.05 64.43-8.8 84.45l26.39-14.52 7 35.63 24.63-5.28 8.8 28.15L153.35 366 134 373l-8.8-33.43-18.47 7-6.16-33.43-27.27 7c-3.82-25.38 2-49.1 13.2-72.14l-30.35-8.36c9.4-43.52 35.47-50.77 63.34-54.1 9.36 30.62 6.24 56.45-2.64 80.05 82.25 56.3 76.75 117.23 81.37 149.11 4.4 30.35 4.45 89.29 25.51 97.21v-29.83l5.28-7 5.28 12.32 10.56-15.84 11.44 21.11 11.43-21.1zm79.17-95L331.06 366c7.47-4.36 13.76-8.42 19.35-12.32-.6 7.22-.27 13.84-3.51 22.84zm28.15-49.26c-.4 10.94-.9 21.66-1.76 31.67-7.85-1.86-15.57-3.8-21.11-7 8.24-7.94 15.55-16.32 22.87-24.68zm24.63 5.28c0-13.43-2.05-24.21-5.28-33.43a235 235 0 0 1-18.47 27.27zm3.52-80.94c19.44 12.81 27.8 33.66 29.91 56.3-12.32-4.53-24.63-9.31-36.95-10.56 5.06-12 6.65-28.14 7-45.74zm-1.76-45.74c.81 14.3 1.84 28.82 1.76 42.23 19.22-8.11 29.78-9.72 44-14.08-10.61-18.96-27.2-25.53-45.76-28.16zM165.68 376.52L181.52 366c-7.47-4.36-13.76-8.42-19.35-12.32.6 7.26.27 13.88 3.51 22.88zm-28.15-49.26c.4 10.94.9 21.66 1.76 31.67 7.85-1.86 15.57-3.8 21.11-7-8.24-7.93-15.55-16.31-22.87-24.67zm-24.64 5.28c0-13.43 2-24.21 5.28-33.43a235 235 0 0 0 18.47 27.27zm-3.52-80.94c-19.44 12.81-27.8 33.66-29.91 56.3 12.32-4.53 24.63-9.31 37-10.56-5-12-6.65-28.14-7-45.74zm1.76-45.74c-.81 14.3-1.84 28.82-1.76 42.23-19.22-8.11-29.78-9.72-44-14.08 10.63-18.95 27.23-25.52 45.76-28.15z"
         />
@@ -160,8 +192,116 @@
     </svg>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'app'
+}
+</script>
 <style lang="scss">
+.hamburger {
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  padding-bottom: 2vh;
+  &__item {
+    cursor: pointer;
+    height: 4px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: $white;
+    display: block;
+    margin: 7px 0;
+    transition: 0.7s ease-in-out;
+    transform: none;
+  }
+}
+.menu-pane {
+  z-index: 1;
+  display: none;
+  background-color: rgba(#000, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  transition: 0.6s ease-in-out;
+}
+
+#openmenu:checked ~ .menu-pane {
+  left: 0;
+}
+
+#openmenu:checked ~ .hamburger span:nth-of-type(1) {
+  transform: translate(0%, 225%) rotate(-45deg);
+  background-color: white;
+  border-radius: 0;
+}
+
+#openmenu:checked ~ .hamburger span:nth-of-type(2) {
+  transform: rotate(45deg);
+  background-color: white;
+  border-radius: 0;
+}
+
+#openmenu:checked ~ .hamburger span:nth-of-type(3) {
+  opacity: 0;
+  background-color: white;
+  width: 0;
+}
+
+#openmenu:checked ~ .menu-pane {
+  display: block;
+}
+
+.navigation {
+  padding-top: 50px;
+  list-style: none;
+  @include flex(flex-start, stretch, column);
+  &__item {
+    text-align: left;
+    width: 100%;
+  }
+  &__links {
+    display: block;
+    cursor: pointer;
+    max-width: 100%;
+    padding: 20px 0;
+    padding-left: 20px;
+    @include text($H200, 400, #c9c9c9);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 1.5px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid $link;
+    background-color: rgba($text-about, 0.1);
+
+    @include media {
+      &:hover {
+        color: $white !important;
+      }
+    }
+    &.router-link-exact-active {
+      background-color: rgba(#000, 0.1);
+      border: none;
+      color: #c9c9c9;
+    }
+  }
+}
+
+input.hamburger-checkbox {
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  top: 50px;
+  left: 0;
+  width: 10vw;
+  opacity: 0;
+  height: 40px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -172,33 +312,11 @@
   min-height: 100vh;
 }
 
-#nav {
+.nav {
+  position: fixed;
   z-index: 10;
-  padding: 30px;
-  background-color: #242526;
-  width: 100%;
-  border-bottom: 2px solid #393a3b;
-
-  a {
-    color: #b8bbbf;
-    text-decoration: none;
-    padding: 10px;
-    border-top: 2px solid transparent;
-    border-radius: 10px;
-    transition: all 0.5s ease;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    &:hover {
-      background-color: $blue;
-      color: $white !important;
-    }
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
-    &.router-link-exact-active {
-      color: $blue;
-      border-color: $blue;
-    }
-  }
+  padding: 25px 30px;
+  background-color: rgba(#000, 0.8);
+  width: 40px;
 }
 </style>

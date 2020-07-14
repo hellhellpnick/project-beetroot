@@ -63,6 +63,7 @@ import VoiceActing from '@/components/common/VoiceActing'
 import MovieTrailer from '@/components/MovieTrailer'
 import MovieAbout from '@/components/MovieAbout'
 import MovieTitle from '@/components/common/MovieTitle'
+
 export default {
   name: 'Movie',
   components: {
@@ -140,7 +141,7 @@ export default {
     &--watch {
       justify-content: center;
       flex-direction: column;
-      border: 1px solid rgba($white, 0.5);
+      border: 2px solid rgba($white, 0.5);
       border-radius: 50%;
       min-height: 200px;
       min-width: 200px;
@@ -154,15 +155,15 @@ export default {
       }
       @keyframes size {
         0% {
-          border: 1px dashed $blue;
+          border: 2px dashed $blue;
           transform: scale(1.05);
         }
         50% {
-          border: 1px solid $white;
+          border: 2px solid $white;
           transform: scale(1);
         }
         100% {
-          border: 1px dashed $blue;
+          border: 2px dashed $blue;
           transform: scale(1.05);
         }
       }
@@ -225,7 +226,7 @@ export default {
     font-weight: 600;
   }
   &__subtitle {
-    @include text($H100, 600, $white);
+    @include text($H200, 400, $white);
     font-family: $base-font;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -259,7 +260,7 @@ export default {
 }
 .container--movie {
   z-index: 2;
-  box-shadow: 0 0 1000px 200px rgba(#000, 0.5);
+  box-shadow: 0 0 1000px 100px rgba(#000, 0.7);
   background-color: rgba(#000, 0.35);
   max-width: 1200px;
   color: #fff;

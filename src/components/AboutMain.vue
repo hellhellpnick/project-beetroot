@@ -14,7 +14,7 @@
       this world of animation from the front - end caught me. I want to conquer it :)
     </p>
     <h2 class="about-main__title">Uses</h2>
-    <p class="about-main__text">What do I use during development?</p>
+    <p class="about-main__text about-main__text--bold">What do I use during development?</p>
     <ul class="list-main">
       <li class="list-main__item">
         <a class="list-main__item-link" href="https://vuejs.org/">
@@ -72,13 +72,14 @@
   @include flex(center, flex-start, column);
   margin-bottom: 25px;
   &__title {
-    @include text($H300, 600, $white);
+    @include text($H300, 700, $white);
+    text-align: left;
     font-family: $base-font;
     letter-spacing: 1.5px;
     margin-bottom: 25px;
   }
   &__text {
-    @include text($H200, 600, $text-about);
+    @include text($H200, 500, $text-about);
     font-family: $base-font;
     letter-spacing: 1.5px;
     margin-bottom: 25px;
@@ -88,9 +89,12 @@
       margin-bottom: 0;
       max-width: 600px;
     }
+    &--bold {
+      font-weight: 600;
+    }
   }
   &__link {
-    @include text($H200, 600, $link);
+    @include text($H200, 500, $link);
     transition: all 0.2s ease;
     @include media() {
       &:hover {

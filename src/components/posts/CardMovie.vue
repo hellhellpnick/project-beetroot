@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{name: 'Movie', params: { pid: movie.id } }">
-    <article class="card-movie">
+    <article class="card-movie animate__slideInRight">
       <h2 class="card-movie__title">{{movie.original_title}}</h2>
       <p class="card-movie__content">{{movie.overview}}</p>
       <a class="card-movie__button">{{movie.id}}</a>

@@ -5,6 +5,39 @@
       <section class="about animate__animated animate__zoomInDown">
         <AboutHeader></AboutHeader>
         <AboutMain></AboutMain>
+        <p class="about-main__title">My recent works</p>
+        <card
+          title="Website Cahee"
+          text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+          state="Article"
+          date="01 Apr 2020"
+          link="https://hellhellpnick.github.io/Cahee/"
+          :image="require('@/assets/card-home/cahee.jpg')"
+        ></card>
+        <card
+          title="Website Tajam"
+          text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+          state="Article"
+          date="16 Apr 2020"
+          link="https://hellhellpnick.github.io/front-end/"
+          :image="require('@/assets/card-home/tajam.jpg')"
+        ></card>
+        <card
+          title="Website Bhromaon"
+          text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+          state="Article"
+          :image="require('@/assets/card-home/bhromaon.jpg')"
+          date="29 Apr 2020"
+          link="http://hellhellpnick.github.io/bhromaon/"
+        ></card>
+        <card
+          title="Website Monticello"
+          text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
+          state="Article"
+          date="29 May 2020"
+          link="https://hellhellpnick.github.io/monticello/"
+          :image="require(`@/assets/card-home/monticello.jpg`)"
+        ></card>
         <div class="about-footer">
           <div class="about-footer__wrapper">
             <p class="about-footer__text">Follow me on:</p>
@@ -36,6 +69,7 @@
               <span class="about-footer__link-text">Instagram</span>
             </a>
           </div>
+
           <AboutFooter></AboutFooter>
         </div>
       </section>
@@ -46,11 +80,13 @@
 import AboutFooter from '@/components/AboutFooter'
 import AboutMain from '@/components/AboutMain'
 import AboutHeader from '@/components/AboutHeader'
+import Card from '@/components/Card'
 export default {
   name: 'About',
   components: {
     AboutFooter,
     AboutMain,
+    Card,
     AboutHeader
   },
   data: () => ({

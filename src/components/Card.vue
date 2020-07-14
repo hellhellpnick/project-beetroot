@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img class="card__box" :src="`${image}`" />
+    <img class="card__box" :src="image" />
     <div class="card-container">
       <a class="card__link" :href="`${link}`">
         <h3 class="card__subtitle">Creating My</h3>
@@ -30,25 +30,28 @@ export default {
 <style lang="scss">
 .card {
   position: relative;
-  margin: 0 auto;
   transition: all 0.2s ease;
   box-shadow: inset 0 0 1000px 10px #000;
   display: block;
   @include flex(flex-start, stretch, column);
   position: relative;
-  max-width: 1200px;
-  max-height: 800px;
+  max-width: 800px;
+  max-height: 600px;
   margin-bottom: 20px;
-  padding: 20px;
   z-index: 20;
   border: 1px solid $text-about;
   &__box {
     position: absolute;
     object-fit: cover;
-    max-height: 100%;
-    max-width: 100%;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 1000px 10px #000;
+    z-index: -2;
   }
   &__link {
     transition: all 0.2s ease;
@@ -108,5 +111,13 @@ export default {
 }
 .card-container {
   z-index: 2;
+  box-shadow: inset 0 0 1000px 10px #000;
+  padding: 20px;
+  transition: all 0.2s ease;
+  @include media {
+    &:hover {
+      box-shadow: none;
+    }
+  }
 }
 </style>
