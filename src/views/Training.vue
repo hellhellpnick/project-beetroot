@@ -1,14 +1,25 @@
 <template>
-  <section>
+  <section class="home container">
     <loader v-if="loading" />
     <template v-else>
-      <h2 class="title is-1">Movie search</h2>
+      <h2 class="title is-1">Home</h2>
       <div class="tile is-ancestor" v-for="(postGroup, idx) in mapedPosts" :key="postGroup[0].id">
-        <div class="movie-list" :class="{_start: idx % 2}">
-          <div class="movie-list">
-            <post-item :post="postGroup[0]" class="is-primary" />
-            <post-item :post="postGroup[1]" class="is-warning" />
+        <div class="tile is-vertical is-8" :class="{_start: idx % 2}">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <post-item :post="postGroup[0]" class="is-primary" />
+              <post-item v-if="postGroup[1]" :post="postGroup[1]" class="is-warning" />
+            </div>
+            <div class="tile is-parent" v-if="postGroup[2]">
+              <post-item :post="postGroup[2]" class="is-info" />
+            </div>
           </div>
+          <div class="tile is-parent" v-if="postGroup[3]">
+            <post-item :post="postGroup[3]" class="is-danger" />
+          </div>
+        </div>
+        <div class="tile is-parent" v-if="postGroup[4]">
+          <post-item :post="postGroup[4]" class="is-success" />
         </div>
       </div>
     </template>
@@ -19,7 +30,7 @@
 import PostItem from '@/components/posts/PostItem.vue'
 
 export default {
-  name: 'Training',
+  name: 'Home',
   components: {
     PostItem
   },
@@ -70,4 +81,10 @@ export default {
 }
 </script>
 <style>
+.home .title {
+  text-transform: capitalize;
+}
+.tile._start {
+  order: 2;
+}
 </style>

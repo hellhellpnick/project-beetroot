@@ -7,6 +7,9 @@ function initSlider() {
     autoplay: true,
     prevArrow: false,
     vertical: true,
+    swipeToSlide: true,
+    verticalSwiping: true,
+    destroy: event,
     nextArrow: $(".arrow-down"),
     dotsClass: "slick-dots",
     responsive: [

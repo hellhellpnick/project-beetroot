@@ -88,8 +88,9 @@ export default {
   @include flex(flex-end, center, column);
   &__image {
     position: absolute;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;

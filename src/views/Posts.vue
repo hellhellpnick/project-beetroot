@@ -7,7 +7,6 @@
     </template>
   </section>
 </template>
-
 <script>
 export default {
   name: 'Post',
@@ -51,3 +50,5 @@ export default {
   }
 }
 </script>
+<style>
+</style>

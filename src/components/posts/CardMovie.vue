@@ -1,17 +1,20 @@
 <template>
-  <router-link :to="{name: 'Movie', params: { pid: movie.id } }">
-    <article class="card-movie animate__slideInRight">
-      <h2 class="card-movie__title">{{movie.original_title}}</h2>
-      <p class="card-movie__content">{{movie.overview}}</p>
-      <a class="card-movie__button">{{movie.id}}</a>
+  <router-link :to="{name: 'Movies', params: { pid: movie.id } }">
+    <article class="card-movie animate__backInUp">
+      <img
+        class="card-movie__image"
+        :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+      />
+      <h2 class="card-movie__title">{{movie.title}}</h2>
+      <p class="card-movie__date">{{movie.release_date}}</p>
     </article>
   </router-link>
 </template>
 <script>
 export default {
-  name: 'MovieCard',
+  name: 'CardMovie',
   props: {
-    post: {
+    movie: {
       type: Object,
       required: true
     }
@@ -20,30 +23,37 @@ export default {
 </script>
 <style lang="scss">
 .card-movie {
-  max-width: 400px;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  padding: 20px;
-  border: 1px solid $text-about;
-  border-radius: 20px;
+  cursor: pointer;
+  max-width: 250px;
+  margin: 0 6px;
+  margin-bottom: 10px;
+  padding: 0 20px 20px 0px;
+  transition: all 0.5s ease;
+  opacity: 0.5;
+  @include media {
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__box {
+    @include flex(space-between, center, row);
+    margin-left: 20px;
+  }
   &__title {
-    @include text($H200, 700, $white);
+    @include text($H50, 700, #fff);
     text-transform: uppercase;
     margin-bottom: 10px;
     text-align: center;
   }
-  &__content {
-    @include text($H100, 400, $text-about);
+  &__date {
+    @include text($H50, 400, $text-about);
     text-align: center;
-    margin-bottom: 25px;
   }
-  &__button {
-    @include text($H100, 400, $blue);
-    background-color: $text-about;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 20px;
-    width: 150px;
+  &__image {
+    width: 250px;
+    height: 400px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   }
 }
 .movie-list {
