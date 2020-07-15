@@ -1,278 +1,133 @@
 <template>
-  <section>
-    <loader v-if="loading" />
-    <template v-else>
-      <div class="movie animate__animated animate__zoomInDown">
-        <img
-          class="movie-absolute"
-          src="https://i.pinimg.com/originals/11/bc/53/11bc537ed061fa023703f398a701c0b3.jpg"
-        />
-        <div class="container container--movie">
-          <div class="movie-content">
-            <div class="movie-content__wrapper">
-              <span class="movie-content__svg-wrapper">
-                <svg class="movie-content__svg">
-                  <use xlink:href="#logo" />
-                </svg>
-              </span>
-              <MovieTitle title="The witcher"></MovieTitle>
-            </div>
-            <div class="movie-content__wrapper">
-              <ListMovie date="2019" type="serial" rating="0.5"></ListMovie>
-            </div>
-          </div>
-
-          <div class="movie-content">
-            <ListChoose></ListChoose>
-            <div class="movie-content__wrapper movie-content__wrapper--watch">
-              <p class="movie-content__text">| | |</p>
-              <h2 class="movie-content__subtitle">End's beginning</h2>
-              <Button name="watch now"></Button>
-            </div>
-            <MovieAbout
-              fulltext="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
-              ullam architecto minima magnam sed est sapiente, aliquid nobis
-              repellat deleniti sequi similique saepe voluptates, animi
-              assumenda aperiam molestiae illoF Tempora?"
-              author="Four Markerk"
-              text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
-              ullam architecto minima magnam sed est sapiente, aliquid nobis
-              repellat deleniti sequi similique saepe voluptates, animi
-              assumenda aperiam molestiae illoF Tempora?"
-            ></MovieAbout>
-          </div>
-
-          <div class="movie-content__wrapper">
-            <MovieTrailer></MovieTrailer>
-            <VoiceActing name="Netflix"></VoiceActing>
-            <div class="movie-content__wrapper">
-              <ListLink></ListLink>
-            </div>
-          </div>
-        </div>
+  <div id="app">
+    <div class="input-wrapper">
+      <input type="text" id="input" v-model="search" class="input" placeholder="Film name" />
+    </div>
+    <div v-for="value in movies" :key="value.id">
+      <div class="movie-list__wrapper" id="list">
+        <CardMovie v-if="value[0]" :movie="value[0]" />
+        <CardMovie v-if="value[1]" :movie="value[1]" />
+        <CardMovie v-if="value[2]" :movie="value[2]" />
+        <CardMovie v-if="value[3]" :movie="value[3]" />
+        <CardMovie v-if="value[4]" :movie="value[4]" />
+        <CardMovie v-if="value[5]" :movie="value[5]" />
+        <CardMovie v-if="value[6]" :movie="value[6]" />
+        <CardMovie v-if="value[7]" :movie="value[7]" />
+        <CardMovie v-if="value[8]" :movie="value[8]" />
+        <CardMovie v-if="value[9]" :movie="value[9]" />
+        <CardMovie v-if="value[10]" :movie="value[10]" />
+        <CardMovie v-if="value[11]" :movie="value[11]" />
+        <CardMovie v-if="value[12]" :movie="value[12]" />
+        <CardMovie v-if="value[13]" :movie="value[13]" />
+        <CardMovie v-if="value[14]" :movie="value[14]" />
+        <CardMovie v-if="value[15]" :movie="value[15]" />
+        <CardMovie v-if="value[16]" :movie="value[16]" />
+        <CardMovie v-if="value[17]" :movie="value[17]" />
+        <CardMovie v-if="value[18]" :movie="value[18]" />
+        <CardMovie v-if="value[19]" :movie="value[19]" />
       </div>
-    </template>
-  </section>
+    </div>
+    <h2 v-if="error">{{error}}</h2>
+  </div>
 </template>
 <script>
-import ListChoose from '@/components/common/ListChoose'
-import ListMovie from '@/components/common/ListMovie'
-import ListLink from '@/components/common/ListLink'
-import Button from '@/components/common/Button'
-import VoiceActing from '@/components/common/VoiceActing'
-import MovieTrailer from '@/components/MovieTrailer'
-import MovieAbout from '@/components/MovieAbout'
-import MovieTitle from '@/components/common/MovieTitle'
+import CardMovie from '@/components/posts/CardMovie.vue'
 
+const initMovie = {
+  title: null,
+  poster_path: '',
+  release_date: ''
+}
 export default {
-  name: 'Movie',
+  name: 'App',
   components: {
-    ListChoose,
-    ListMovie,
-    ListLink,
-    MovieTrailer,
-    Button,
-    VoiceActing,
-    MovieTitle,
-    MovieAbout
+    CardMovie
   },
   data: () => ({
+    search: '',
+    movie: { ...initMovie },
+    movies: [],
+    error: '',
     loading: false
-  })
+  }),
+  methods: {
+    check () {
+      const $list = document.getElementById('#list')
+      $list.innerHTML = ''
+    },
+    onError () {
+      this.error = 'movie not found'
+    },
+    async fetchMovie (query) {
+      if (query) {
+        try {
+          this.loading = true
+          this.error = ''
+          const res = await fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=f1540f730f26f48851aa3a0a12af3257&query=${query}`
+          )
+          if (res.ok) {
+            const data = await res.json()
+            this.movies.push(data.results)
+          } else {
+            this.onError()
+            this.check()
+          }
+        } catch (err) {
+          console.log(err)
+          this.onError()
+          this.check()
+        }
+      } else {
+        this.check()
+      }
+    }
+  },
+  watch: {
+    search (search) {
+      const $input = document.getElementById('#input')
+      if (search) {
+        this.fetchMovie(search)
+      } else if ($input === '') {
+        const $list = document.getElementById('#list')
+        $list.innerHTML = ''
+      }
+    }
+  }
 }
 </script>
+
 <style lang="scss">
-.movie {
-  z-index: 1;
-  position: relative; /*
-  background-image: url("https://i.pinimg.com/originals/11/bc/53/11bc537ed061fa023703f398a701c0b3.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  @include flex(center, center);
-  min-height: 100vh;
-  max-height: max-content;
-  color: $text;
-  background-color: $bg-color;
-  padding: 100px 0;
-}
-.movie-absolute {
-  position: absolute;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-.movie-content {
-  @include flex(center, center, column, wrap);
-  border-radius: 10px;
-  padding: 5px;
-  margin-bottom: 70px;
-  @media screen and (min-width: $screen-tablet) {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  &__footer {
-    &-svg {
-      position: Absolute;
-      @include svg(50px);
-      display: block;
-      margin: 0 auto;
-      margin-left: 0px;
-      @media screen and (min-width: $screen-tablet) {
-        margin-left: 25px;
-      }
-    }
-    &-text {
-      position: relative;
-      @include text($H200, 600, $white);
-      font-family: $base-font;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+.input {
+  background-color: $text-about;
+  @include text($H50, 400, $white);
+  text-transform: capitalize;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 150px;
+  transition: all 0.2s ease;
+  @include media {
+    &:focus {
+      width: 170px;
     }
   }
-  &__wrapper {
-    position: relative;
-    @include flex(center, center, column);
-    margin-bottom: 35px;
-    @media screen and (min-width: $screen-tablet) {
-      margin-bottom: 0px;
-      justify-content: space-between;
-      flex-direction: row;
-    }
-    &--watch {
-      justify-content: center;
-      flex-direction: column;
-      border: 2px solid rgba($white, 0.5);
-      border-radius: 50%;
-      min-height: 200px;
-      min-width: 200px;
-      padding: 40px 20px;
-      margin: 15px 0 30px 0;
-      animation-name: size;
-      animation-iteration-count: infinite;
-      animation-duration: 2.5s;
-      &:hover {
-        animation-play-state: paused;
-      }
-      @keyframes size {
-        0% {
-          border: 1.5px dashed $blue;
-          transform: scale(1.05);
-        }
-        50% {
-          border: 1.5px solid $white;
-          transform: scale(1);
-        }
-        100% {
-          border: 1.5px dashed $blue;
-          transform: scale(1.05);
-        }
-      }
-      @media screen and (min-width: $screen-tablet) {
-        margin: 0;
-      }
-      @media screen and (min-width: 1140px) {
-        margin: 0 55px;
-        min-height: 300px;
-        min-width: 300px;
-      }
-    }
-    &--trailer {
-      z-index: 1;
-      position: relative;
-      border: 1px solid rgba($white, 0.5);
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 1.2s ease;
-      &:hover {
-        background-color: #fff;
-        .circle {
-          transform: translateX(96px);
-          background-color: $blue;
-        }
-      }
-    }
-    &--row {
-      justify-content: center;
-      flex-direction: row;
-      width: 250px;
-      margin-bottom: 50px;
-      @media screen and (min-width: 1140px) {
-        justify-content: flex-start;
-        width: 300px;
-      }
-    }
-    &--end {
-      align-items: flex-end;
-    }
-  }
-  &__svg {
-    @include svg(20px, $white);
-    margin-right: 10px;
-    &-author {
-      @include svg(25px, $white);
-      margin-right: 15px;
-    }
-  }
-  &__watch {
-    padding: 10px 15px;
-    margin-left: 30px;
-    @include text($H10, 400, $white);
-    font-family: $base-font;
-    text-transform: uppercase;
-  }
-  &__title {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-  }
-  &__subtitle {
-    @include text($H100, 400, $white);
-    font-family: $base-font;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 24px;
-  }
-  &__text {
-    display: block;
-    &:last-child {
-      margin: 0 0 0 auto;
-    }
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
+  &::placeholder {
     @include text($H50, 400, $white);
-    text-align: center;
-    max-width: 225px;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    @media screen and (min-width: 1140px) {
-      text-align: right;
-      max-width: 275px;
-    }
-  }
-  &__author {
-    @include text($H100, 700, $white);
-    font-family: $base-font;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    text-transform: capitalize;
   }
 }
-.container--movie {
-  z-index: 2;
-  box-shadow: 0 0 10000px 500px rgba(#000, 0.7),
-    inset 0 0 10px 1px rgba(#000, 0.7);
-  background-color: rgba(#000, 0.35);
-  max-width: 1200px;
-  color: #fff;
-  padding: 50px 0;
-  border: 1px solid #fff;
-  border-radius: 15px;
-  @media screen and (min-width: $screen-tablet) {
-    padding: 50px 20px !important;
-  }
-  @media screen and (min-width: 1140px) {
-    padding: 50px 40px !important;
-  }
+.input-wrapper {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+.text {
+  color: $white;
+  margin: 15px 0;
+}
+.movie-list__wrapper {
+  @include flex(center, center, row, wrap);
 }
 </style>

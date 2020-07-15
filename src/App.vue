@@ -23,12 +23,6 @@
               <li class="navigation__item">
                 <router-link class="navigation__links" to="/movie">Movie</router-link>
               </li>
-              <li class="navigation__item">
-                <router-link class="navigation__links" to="/training">Training</router-link>
-              </li>
-              <li class="navigation__item">
-                <router-link class="navigation__links" to="/training2">Training2</router-link>
-              </li>
             </ul>
           </nav>
         </div>
