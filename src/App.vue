@@ -217,6 +217,16 @@ export default {
     transform: none;
   }
 }
+.hamburger-checkbox {
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  top: 5px;
+  left: 15px;
+  width: 30px;
+  opacity: 0;
+  height: 40px;
+}
 .menu-pane {
   z-index: 1;
   display: none;
@@ -289,17 +299,6 @@ export default {
       color: #c9c9c9;
     }
   }
-}
-
-input.hamburger-checkbox {
-  cursor: pointer;
-  position: absolute;
-  z-index: 3;
-  top: 50px;
-  left: 0;
-  width: 10vw;
-  opacity: 0;
-  height: 40px;
 }
 
 #app {

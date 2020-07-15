@@ -2,7 +2,73 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
-      <section class="home animate__animated animate__zoomInDown"></section>
+      <section class="home animate__animated animate__zoomInDown">
+        <div class="slider">
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://s2.best-wallpaper.net/wallpaper/1920x1080/1608/Warcraft-movie-2016-HD_1920x1080.jpg"
+              alt
+            />
+            <h2 class="slider__title">Warcraft</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://i.pinimg.com/originals/21/f2/13/21f213ca88348a895e17205657bce3db.jpg"
+              alt
+            />
+            <h2 class="slider__title">Avatar</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://images.hdqwalls.com/wallpapers/how-to-train-your-dragon-the-hidden-world-movie-poster-oh.jpg"
+              alt
+            />
+            <h2 class="slider__title">How To Train Your Dragon The Hidden World</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://cdn.onebauer.media/one/empire-images/reviews_films/5ccc0a6f133d503e3a496de5/pdp2.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg"
+              alt
+            />
+            <h2 class="slider__title">POKÉMON Detective Pikachu</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://i0.wp.com/image.tmdb.org/t/p/original//5A2bMlLfJrAfX9bqAibOL2gCruF.jpg"
+              alt
+            />
+            <h2 class="slider__title">Aquaman</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://images7.alphacoders.com/526/thumb-1920-526236.jpg"
+              alt
+            />
+            <h2 class="slider__title">The Hobbit: The Battle of the Five Armies</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+          <div class="slider-wrapper">
+            <img
+              class="slider__image"
+              src="https://i.ytimg.com/vi/7gbEKVsKivE/maxresdefault.jpg"
+              alt
+            />
+            <h2 class="slider__title">Fantastic Beasts: Crimes of Green de Wald</h2>
+            <a class="slider__button">Discover more</a>
+          </div>
+        </div>
+      </section>
     </template>
   </section>
 </template>
@@ -17,31 +83,85 @@ export default {
 </script>
 
 <style lang="scss">
-.home {
-  @extend %container;
-  min-height: 100vh;
-  max-height: max-content;
-  padding: 50px 10px 30px 10px;
-}
-.home-header {
-  margin-bottom: 50px;
+.slider {
+  max-height: 100vh;
+  @include flex(flex-end, center, column);
+  &__image {
+    position: absolute;
+    object-fit: contain;
+    object-position: center center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+  }
   &__title {
-    @include text($H400, 600, $white);
-    font-family: $base-font;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
+    position: relative;
+    @include text($H300, 700, $white);
+    text-transform: capitalize;
+    margin-bottom: 20px;
   }
-  &__subtitle {
-    @include text($H200, 600, $white);
-    font-family: $base-font;
+  &__button {
+    cursor: pointer;
+    margin-bottom: 50px;
+    @include text($H50, 500, $white);
+    border: 1px solid $white;
     letter-spacing: 1.5px;
-    margin-bottom: 15px;
+    padding: 10px 20px;
+    @include media {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
-  &__text {
-    @include text($H100, 600, $white);
-    font-family: $base-font;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-  }
+}
+.slider-wrapper {
+  position: relative;
+  display: flex !important;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh !important;
+  box-shadow: inset 0 0 1000px 1000px rgba(#000, 0.1);
+}
+.slick-dots {
+  margin: auto;
+  position: absolute;
+  right: 60px;
+  top: 40%;
+  padding: 0;
+  margin: 0;
+  @include size(10px);
+}
+.slick-dots li {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  @include size(10px);
+}
+.slick-dots li button::before {
+  padding: 0;
+  font-size: 5px;
+  color: transparent;
+  background-color: $text-about;
+  opacity: 1;
+  border-radius: 50%;
+  @include size(10px);
+}
+
+.slick-dots li.slick-active button::before {
+  padding: 0;
+  margin: 0;
+  color: transparent;
+  background-color: #fff;
+  opacity: 1;
+  @include size(10px);
+  border-radius: 50%;
+}
+.slick-slide {
+  border: 0;
+  outline: none;
 }
 </style>

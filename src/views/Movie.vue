@@ -155,15 +155,15 @@ export default {
       }
       @keyframes size {
         0% {
-          border: 2px dashed $blue;
+          border: 1.5px dashed $blue;
           transform: scale(1.05);
         }
         50% {
-          border: 2px solid $white;
+          border: 1.5px solid $white;
           transform: scale(1);
         }
         100% {
-          border: 2px dashed $blue;
+          border: 1.5px dashed $blue;
           transform: scale(1.05);
         }
       }
@@ -226,7 +226,7 @@ export default {
     font-weight: 600;
   }
   &__subtitle {
-    @include text($H200, 400, $white);
+    @include text($H100, 400, $white);
     font-family: $base-font;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -260,7 +260,8 @@ export default {
 }
 .container--movie {
   z-index: 2;
-  box-shadow: 0 0 1000px 100px rgba(#000, 0.7);
+  box-shadow: 0 0 10000px 500px rgba(#000, 0.7),
+    inset 0 0 10px 1px rgba(#000, 0.7);
   background-color: rgba(#000, 0.35);
   max-width: 1200px;
   color: #fff;
