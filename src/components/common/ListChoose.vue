@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list-choose">
-      <li class="list-choose__item" @click="$emit('active')" :class="type">
+      <li class="list-choose__item activat">
         <span class="list-choose__item-wrapper">
           <svg class="list-choose__item-svg">
             <use xlink:href="#t" />
@@ -144,13 +144,7 @@
 </template>
 <script>
 export default {
-  name: 'ListChoose',
-  props: {
-    type: {
-      type: String,
-      default: 'primary'
-    }
-  }
+  name: 'ListChoose'
 }
 </script>
 <style lang="scss">
@@ -175,7 +169,7 @@ export default {
     }
   }
 }
-.activate {
+.activat {
   opacity: 1;
 }
 </style>

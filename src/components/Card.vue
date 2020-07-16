@@ -40,10 +40,19 @@ export default {
   margin-bottom: 20px;
   z-index: 20;
   border: 1px solid $text-about;
+  border-radius: 5px;
+  box-shadow: -2px 0 3px 0 $blue;
+  transition: all 0.2s ease;
+  @include media {
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
   &__box {
     position: absolute;
     object-fit: cover;
     object-position: center center;
+    border-radius: 5px;
     height: 100%;
     width: 100%;
     top: 0;
@@ -114,6 +123,7 @@ export default {
   box-shadow: inset 0 0 1000px 10px #000;
   padding: 20px;
   transition: all 0.2s ease;
+  border-radius: 5px;
   @include media {
     &:hover {
       box-shadow: none;

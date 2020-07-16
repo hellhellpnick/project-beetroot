@@ -18,7 +18,11 @@
               <MovieTitle :title="movie.title"></MovieTitle>
             </div>
             <div class="movie-content__wrapper">
-              <ListMovie :date="movie.release_date" type="serial" :rating="movie.vote_average"></ListMovie>
+              <ListMovie
+                :date="movie.release_date"
+                :type="movie.status"
+                :rating="movie.vote_average"
+              ></ListMovie>
             </div>
           </div>
 
@@ -38,7 +42,6 @@
 
           <div class="movie-content__wrapper">
             <MovieTrailer></MovieTrailer>
-            <VoiceActing name="Netflix"></VoiceActing>
             <div class="movie-content__wrapper">
               <ListLink></ListLink>
             </div>
@@ -54,7 +57,6 @@ import ListChoose from '@/components/common/ListChoose'
 import ListMovie from '@/components/common/ListMovie'
 import ListLink from '@/components/common/ListLink'
 import Button from '@/components/common/Button'
-import VoiceActing from '@/components/common/VoiceActing'
 import MovieTrailer from '@/components/MovieTrailer'
 import MovieAbout from '@/components/MovieAbout'
 import MovieTitle from '@/components/common/MovieTitle'
@@ -67,7 +69,6 @@ export default {
     ListLink,
     MovieTrailer,
     Button,
-    VoiceActing,
     MovieTitle,
     MovieAbout
   },

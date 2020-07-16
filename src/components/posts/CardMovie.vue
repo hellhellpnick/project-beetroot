@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{name: 'Movies', params: { pid: movie.id } }">
-    <article class="card-movie animate__backInUp">
+    <article class="card-movie animate__animated animate__slow 2s animate__backInRight">
       <img
         class="card-movie__image"
         :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"

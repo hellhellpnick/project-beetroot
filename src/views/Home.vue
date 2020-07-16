@@ -74,8 +74,12 @@
 </template>
 
 <script>
+/*
+import CardSlide from '@/components/posts/CardSlide.vue'
+ */
 export default {
-  name: 'Home',
+  name: 'Home', /*  components: {    CardSlide
+  }, */
   data: () => ({
     loading: false
   })
