@@ -4,9 +4,11 @@
     <template v-else>
       <section class="home animate__animated animate__zoomInDown">
         <div class="arrow-down">
-          <svg class="arrow-down__svg">
-            <use xlink:href="#arrow-down" />
-          </svg>
+          <div class="arrow">
+            <span class="arrow__item"></span>
+            <span class="arrow__item"></span>
+            <span class="arrow__item"></span>
+          </div>
         </div>
         <div class="slider">
           <div class="slider-wrapper">
@@ -92,25 +94,52 @@ export default {
 
 <style lang="scss">
 .arrow-down {
-  position: fixed;
+  position: absolute;
   cursor: pointer;
   z-index: 10;
   left: 50%;
   margin-right: -50%;
   transform: translatex(-50%);
-  bottom: 0;
-  background-color: $text-about;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  bottom: -50px;
+  background-color: rgba($white, 0.5);
+  border-radius: 50%;
   padding: 20px 20px 10px 20px;
-  @include media {
-    &:hover svg {
-      transform: translatey(5px) rotate(360deg);
+  width: 100px;
+  height: 100px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &__item {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 5px solid #000;
+    border-right: 5px solid #000;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+    &:nth-child(2) {
+      animation-delay: -0.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.4s;
     }
   }
-  &__svg {
-    @include svg(20px, $text);
-    transition: all 0.5s ease;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
   }
 }
 .slider {

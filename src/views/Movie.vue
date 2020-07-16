@@ -104,14 +104,15 @@ export default {
   text-transform: capitalize;
   padding: 10px;
   margin: 15px 0;
+  margin-top: 50px;
   border-radius: 20px;
   border: none;
   outline: none;
-  width: 150px;
+  width: 90%;
   transition: all 0.2s ease;
   @include media {
     &:focus {
-      width: 170px;
+      width: 100%;
     }
   }
   &::placeholder {
@@ -121,7 +122,7 @@ export default {
 }
 .input-wrapper {
   display: block;
-  width: 200px;
+  width: 90%;
   margin: 0 auto;
 }
 .text {

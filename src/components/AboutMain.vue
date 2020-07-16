@@ -71,6 +71,7 @@
   position: relative;
   @include flex(center, flex-start, column);
   margin-bottom: 25px;
+  max-width: 1200px;
   &__title {
     @include text($H300, 700, $white);
     text-align: left;
