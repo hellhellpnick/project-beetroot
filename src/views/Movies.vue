@@ -2,7 +2,6 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
-      <vue-title :title="movie.title"></vue-title>
       <div class="movie animate__animated animate__zoomInDown">
         <img
           class="movie-absolute"
