@@ -169,6 +169,20 @@ export default {
   name: 'app',
   components: {
     Navigation
+  },
+  computed: {
+    pageTitle () {
+      return this.$route.meta.title
+    }
+  },
+
+  watch: {
+    pageTitle: val => {
+      document.title = val
+    }
+  },
+  created () {
+    document.title = this.$route.meta.title
   }
 }
 </script>

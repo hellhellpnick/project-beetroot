@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="input-wrapper">
-      <input type="text" id="input" v-model="search" class="input" placeholder="Film name" />
+      <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
     <div v-for="value in movies" :key="value.id">
       <div class="movie-list__wrapper" id="list">
@@ -103,6 +103,7 @@ export default {
   @include text($H50, 400, $white);
   text-transform: capitalize;
   padding: 10px;
+  margin: 15px 0;
   border-radius: 20px;
   border: none;
   outline: none;

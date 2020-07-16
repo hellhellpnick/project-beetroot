@@ -11,22 +11,38 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      auth: true,
+      title: 'Home'
+    }
   },
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: About,
+    meta: {
+      auth: true,
+      title: 'About'
+    }
   },
   {
     path: '/movies/:pid',
     name: 'Movies',
-    component: Movies
+    component: Movies,
+    meta: {
+      auth: true,
+      title: 'Movies'
+    }
   },
   {
     path: '/movie',
     name: 'Movie',
-    component: Movie
+    component: Movie,
+    meta: {
+      auth: true,
+      title: 'Movie'
+    }
   }
 ]
 
