@@ -3,6 +3,11 @@
     <loader v-if="loading" />
     <template v-else>
       <section class="home animate__animated animate__zoomInDown">
+        <div class="arrow-down">
+          <svg class="arrow-down__svg">
+            <use xlink:href="#arrow-down" />
+          </svg>
+        </div>
         <div class="slider">
           <div class="slider-wrapper">
             <img
@@ -78,8 +83,7 @@
 import CardSlide from '@/components/posts/CardSlide.vue'
  */
 export default {
-  name: 'Home', /*  components: {    CardSlide
-  }, */
+  name: 'Home' /*  components: {    CardSlide  }, */,
   data: () => ({
     loading: false
   })
@@ -87,6 +91,28 @@ export default {
 </script>
 
 <style lang="scss">
+.arrow-down {
+  position: fixed;
+  cursor: pointer;
+  z-index: 10;
+  left: 50%;
+  margin-right: -50%;
+  transform: translatex(-50%);
+  bottom: 0;
+  background-color: $text-about;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  padding: 20px 20px 10px 20px;
+  @include media {
+    &:hover svg {
+      transform: translatey(5px) rotate(360deg);
+    }
+  }
+  &__svg {
+    @include svg(20px, $text);
+    transition: all 0.5s ease;
+  }
+}
 .slider {
   max-height: 100vh;
   @include flex(flex-end, center, column);
@@ -110,7 +136,7 @@ export default {
   }
   &__button {
     cursor: pointer;
-    margin-bottom: 50px;
+    margin-bottom: 90px;
     @include text($H50, 500, $white);
     border: 1px solid $white;
     letter-spacing: 1.5px;
