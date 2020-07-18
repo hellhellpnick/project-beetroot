@@ -291,7 +291,7 @@ export default {
   &:hover polygon,
   &:hover path {
     transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
-    fill: #00f2ff;
+    fill: $blue;
   }
 
   &:hover .arrow__polygon {
