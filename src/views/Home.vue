@@ -110,7 +110,7 @@ export default {
   margin-right: -50%;
   transform: translatex(-50%);
   bottom: -50px;
-  background-color: rgba($white, 0.5);
+  background-color: rgba(#000, 0.7);
   border-radius: 50%;
   padding: 20px 20px 10px 20px;
   width: 100px;
@@ -127,7 +127,7 @@ export default {
     width: 30px;
     height: 30px;
     border: 5px solid;
-    border-color: black transparent transparent black;
+    border-color: #fff transparent transparent #fff;
     transform: rotate(225deg);
   }
 }
@@ -153,19 +153,19 @@ export default {
 @-webkit-keyframes slide {
   0% {
     opacity: 0;
-    transform: translatey(-15vw);
+    transform: translatey(-15px);
   }
   20% {
     opacity: 1;
-    transform: translatey(-9vw);
+    transform: translatey(-9px);
   }
   80% {
     opacity: 1;
-    transform: translatey(9vw);
+    transform: translatey(9px);
   }
   100% {
     opacity: 0;
-    transform: translatey(15vw);
+    transform: translatey(15px);
   }
 }
 @keyframes slide {
