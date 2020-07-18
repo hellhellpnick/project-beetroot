@@ -2,142 +2,16 @@
   <div>
     <ul class="list-choose">
       <li class="list-choose__item activat">
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#t" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#r" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#a" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#i" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#l" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#e" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#r" />
-          </svg>
-        </span>
+        <a class="list-choose__item-link">Trailer</a>
       </li>
       <li class="list-choose__item">
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#s" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#e" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#r" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#i" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#e" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#s" />
-          </svg>
-        </span>
+        <a class="list-choose__item-link">Series</a>
       </li>
       <li class="list-choose__item">
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#c" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#a" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#s" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#t" />
-          </svg>
-        </span>
+        <a class="list-choose__item-link">Cast</a>
       </li>
       <li class="list-choose__item">
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#o" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#r" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#i" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#g" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#i" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#n" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#a" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#l" />
-          </svg>
-        </span>
-        <span class="list-choose__item-wrapper">
-          <svg class="list-choose__item-svg">
-            <use xlink:href="#s" />
-          </svg>
-        </span>
+        <a class="list-choose__item-link">Original</a>
       </li>
     </ul>
   </div>
@@ -152,24 +26,28 @@ export default {
   list-style: none;
   @include flex(flex-start, flex-start, column);
   &__item {
-    @include flex(center, center, row);
     cursor: pointer;
-    margin-bottom: 30px;
-    opacity: 0.2;
-    &:hover {
-      opacity: 1;
+    margin-bottom: 10px;
+    &:hover &-link {
+      background-size: 100%;
     }
-    &-svg {
-      @include svg(25px, $white);
-      color: #fff;
-      transition: all 0.2s ease;
-      @media screen and (min-width: 1140px) {
-        @include svg(35px, $white);
-      }
+    &-link {
+      --fill-color: #fff;
+      position: relative;
+      display: block;
+      padding: 4px 0;
+      @include text($H400, 700);
+      text-decoration: none;
+      text-transform: uppercase;
+      -webkit-text-stroke: 2px var(--fill-color);
+      background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+      color: transparent;
+      background-clip: text;
+      transition: 0.5s linear;
     }
   }
 }
-.activat {
-  opacity: 1;
+.activat a {
+  background-size: 100%;
 }
 </style>
