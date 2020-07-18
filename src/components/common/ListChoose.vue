@@ -40,10 +40,11 @@ export default {
       text-decoration: none;
       text-transform: uppercase;
       -webkit-text-stroke: 2px var(--fill-color);
-      background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+      background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat,
+        linear-gradient(var(--fill-color) 0 100%) right / 0 no-repeat;
       color: transparent;
       background-clip: text;
-      transition: 0.5s linear;
+      transition: 1s linear;
     }
   }
 }

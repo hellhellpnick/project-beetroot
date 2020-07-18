@@ -11,15 +11,19 @@ export default {
 </script>
 <style lang="scss">
 .button {
+  --fill-color: #fff;
   @include text($H10, 400, $white);
   font-family: $base-font;
   padding: 10px 15px;
   text-transform: uppercase;
   border: 1px solid rgba($white, 0.5);
   border-radius: 20px;
+  background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
   transition: all 0.5s ease;
   &:hover {
-    transform: scale(1.2);
+    background-size: 100%;
+    color: $blue;
+    font-weight: 700;
   }
 }
 .button:hover::after,

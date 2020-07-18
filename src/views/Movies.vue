@@ -207,14 +207,16 @@ export default {
       }
     }
     &--trailer {
+      --fill-color: #fff;
       z-index: 1;
       position: relative;
       border: 1px solid rgba($white, 0.5);
       border-radius: 20px;
       cursor: pointer;
       transition: all 1.2s ease;
+      background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
       &:hover {
-        background-color: #fff;
+        background-size: 100%;
         .circle {
           transform: translateX(96px);
           background-color: $blue;

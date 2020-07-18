@@ -109,7 +109,6 @@ export default {
     &--back {
       transform: rotateY(0.5turn);
       @include flex(center, center, column);
-      margin-bottom: 15px;
     }
     &--back img {
       position: absolute;

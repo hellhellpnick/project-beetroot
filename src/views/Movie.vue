@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import CardMovie from '@/components/posts/CardMovie.vue'
+import CardMovie from '@/components/Card/CardMovie.vue'
 
 const initMovie = {
   title: null,

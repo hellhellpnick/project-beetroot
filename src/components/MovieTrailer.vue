@@ -17,7 +17,7 @@ export default {
   border-radius: 50%;
   @include size(40px);
   cursor: pointer;
-  transition: all 0.5s ease;
+  transition: all 1s ease;
   left: 0;
 }
 </style>
