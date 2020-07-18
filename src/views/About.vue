@@ -7,38 +7,95 @@
           <AboutHeader></AboutHeader>
           <AboutMain></AboutMain>
           <p class="about-main__title">My recent works</p>
-          <CardWorks
-            title="Website Cahee"
-            text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-            state="Article"
-            date="01 Apr 2020"
-            link="https://hellhellpnick.github.io/Cahee/"
-            :image="require('@/assets/card-home/cahee.jpg')"
-          ></CardWorks>
-          <CardWorks
-            title="Website Tajam"
-            text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-            state="Article"
-            date="16 Apr 2020"
-            link="https://hellhellpnick.github.io/front-end/"
-            :image="require('@/assets/card-home/tajam.jpg')"
-          ></CardWorks>
-          <CardWorks
-            title="Website Bhromaon"
-            text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-            state="Article"
-            :image="require('@/assets/card-home/bhromaon.jpg')"
-            date="29 Apr 2020"
-            link="http://hellhellpnick.github.io/bhromaon/"
-          ></CardWorks>
-          <CardWorks
-            title="Website Monticello"
-            text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
-            state="Article"
-            date="29 May 2020"
-            link="https://hellhellpnick.github.io/monticello/"
-            :image="require(`@/assets/card-home/monticello.jpg`)"
-          ></CardWorks>
+          <div class="card-work__container">
+            <div class="card-slider">
+              <CardWorks
+                title="Website Cahee"
+                text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+                state="Article"
+                date="01 Apr 2020"
+                link="https://hellhellpnick.github.io/Cahee/"
+                :image="require('@/assets/card-home/cahee.jpg')"
+              ></CardWorks>
+              <CardWorks
+                title="Website Tajam"
+                text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+                state="Article"
+                date="16 Apr 2020"
+                link="https://hellhellpnick.github.io/front-end/"
+                :image="require('@/assets/card-home/tajam.jpg')"
+              ></CardWorks>
+              <CardWorks
+                title="Website Bhromaon"
+                text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+                state="Article"
+                :image="require('@/assets/card-home/bhromaon.jpg')"
+                date="29 Apr 2020"
+                link="http://hellhellpnick.github.io/bhromaon/"
+              ></CardWorks>
+              <CardWorks
+                title="Website Monticello"
+                text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
+                state="Article"
+                date="29 May 2020"
+                link="https://hellhellpnick.github.io/monticello/"
+                :image="require(`@/assets/card-home/monticello.jpg`)"
+              ></CardWorks>
+            </div>
+
+            <div>
+              <svg
+                class="arrow-svg arrow-svg__left"
+                width="18px"
+                height="17px"
+                viewBox="0 0 18 17"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  id="prev"
+                  transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)"
+                >
+                  <polygon
+                    class="arrow__polygon"
+                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
+                  />
+                  <polygon
+                    class="arrow__fixed"
+                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
+                  />
+                  <path
+                    d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"
+                  />
+                </g>
+              </svg>
+
+              <svg
+                class="arrow-svg arrow-svg__right"
+                width="18px"
+                height="17px"
+                viewBox="-1 0 18 17"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g>
+                  <polygon
+                    class="arrow__polygon"
+                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
+                  />
+                  <polygon
+                    class="arrow__fixed"
+                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
+                  />
+                  <path
+                    d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
           <div class="about-footer">
             <div class="about-footer__wrapper">
               <p class="about-footer__text">Follow me on:</p>

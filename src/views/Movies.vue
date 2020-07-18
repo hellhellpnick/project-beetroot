@@ -271,7 +271,7 @@ export default {
     }
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
     @include text($H50, 400, $white);
     text-align: center;
