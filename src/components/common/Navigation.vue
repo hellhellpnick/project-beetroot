@@ -42,7 +42,7 @@
 <style lang="scss">
 .main-menu {
   float: left;
-  position: absolute;
+  position: fixed;
   min-height: 100%;
   width: 500px;
   z-index: 1000;
