@@ -1,22 +1,31 @@
 <template>
-  <div class="card">
-    <img class="card__box" :src="image" />
-    <div class="card-container">
-      <a class="card__link" :href="`${link}`">
-        <h3 class="card__subtitle">Creating My</h3>
-        <h2 class="card__title">{{ title }}</h2>
-        <p class="card__text">{{ text }}</p>
-        <div class="card__wrapper">
-          <p class="card__text card__text--last">{{ state }}</p>
-          <p class="card__text card__text--last">{{ date }}</p>
+  <div>
+    <div class="background-img">
+      <div class="box">
+        <span class="box__line"></span>
+        <span class="box__line"></span>
+        <span class="box__line"></span>
+        <div class="card-work">
+          <img class="card-work__box" :src="image" />
+          <div class="card-work-container">
+            <a class="card-work__link" :href="`${link}`">
+              <h3 class="card-work__subtitle">Creating My</h3>
+              <h2 class="card-work__title">{{ title }}</h2>
+              <p class="card-work__text">{{ text }}</p>
+              <div class="card-work__wrapper">
+                <p class="card-work__text card-work__text--last">{{ state }}</p>
+                <p class="card-work__text card-work__text--last">{{ date }}</p>
+              </div>
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'Card',
+  name: 'card-work',
   props: {
     title: String,
     text: String,
@@ -28,26 +37,21 @@ export default {
 }
 </script>
 <style lang="scss">
-.card {
-  position: relative;
+.card-work {
+  position: absolute;
   transition: all 0.2s ease;
   box-shadow: inset 0 0 1000px 10px #000;
-  display: block;
   @include flex(flex-start, stretch, column);
   position: relative;
   max-width: 800px;
   max-height: 600px;
-  margin-bottom: 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   z-index: 20;
-  border: 1px solid $text-about;
   border-radius: 5px;
-  box-shadow: -2px 0 3px 0 $blue;
   transition: all 0.2s ease;
-  @include media {
-    &:hover {
-      transform: translateX(10px);
-    }
-  }
   &__box {
     position: absolute;
     object-fit: cover;
@@ -65,12 +69,12 @@ export default {
   &__link {
     transition: all 0.2s ease;
     &:hover {
-      .card {
+      .card-work {
         box-shadow: none;
       }
-      .card__subtitle,
-      .card__title,
-      .card__text {
+      .card-work__subtitle,
+      .card-work__title,
+      .card-work__text {
         color: transparent;
       }
     }
@@ -118,7 +122,7 @@ export default {
     }
   }
 }
-.card-container {
+.card-work-container {
   z-index: 2;
   box-shadow: inset 0 0 1000px 10px #000;
   padding: 20px;
@@ -128,6 +132,68 @@ export default {
     &:hover {
       box-shadow: none;
     }
+  }
+}
+.box {
+  position: relative;
+  background: #111845a6;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 800px;
+  max-height: 600px;
+  box-shadow: 0 20px 50px rgb(23, 32, 90);
+  color: white;
+  padding: 5px;
+  margin-bottom: 15px;
+  &__line {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    &:nth-child(1) {
+      transform: rotate(0deg);
+    }
+    &:nth-child(2) {
+      transform: rotate(90deg);
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(180deg);
+    }
+    &:nth-child(4) {
+      transform: rotate(270deg);
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background: #50dfdb;
+      animation: animate 4s linear infinite;
+    }
+  }
+}
+@keyframes animate {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
 </style>
