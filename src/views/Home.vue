@@ -5,9 +5,18 @@
       <section class="home animate__animated animate__zoomInDown">
         <div class="arrow-down">
           <div class="arrow">
-            <span class="arrow__item"></span>
-            <span class="arrow__item"></span>
-            <span class="arrow__item"></span>
+            <div class="arrowSliding">
+              <div class="arrow-down__animated"></div>
+            </div>
+            <div class="arrowSliding delay1">
+              <div class="arrow-down__animated"></div>
+            </div>
+            <div class="arrowSliding delay2">
+              <div class="arrow-down__animated"></div>
+            </div>
+            <div class="arrowSliding delay3">
+              <div class="arrow-down__animated"></div>
+            </div>
           </div>
         </div>
         <div class="slider">
@@ -109,37 +118,72 @@ export default {
 }
 .arrow {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 10px;
+  left: 35%;
   transform: translate(-50%, -50%);
-  &__item {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-bottom: 5px solid #000;
-    border-right: 5px solid #000;
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-    &:nth-child(2) {
-      animation-delay: -0.2s;
-    }
-    &:nth-child(3) {
-      animation-delay: -0.4s;
-    }
+}
+.arrow-down {
+  &__animated {
+    width: 30px;
+    height: 30px;
+    border: 5px solid;
+    border-color: black transparent transparent black;
+    transform: rotate(225deg);
   }
 }
-@keyframes animate {
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 4s linear infinite;
+  animation: slide 4s linear infinite;
+}
+
+.delay1 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.delay2 {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.delay3 {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+
+@-webkit-keyframes slide {
   0% {
     opacity: 0;
-    transform: rotate(45deg) translate(-20px, -20px);
+    transform: translatey(-15vw);
   }
-  50% {
+  20% {
     opacity: 1;
+    transform: translatey(-9vw);
+  }
+  80% {
+    opacity: 1;
+    transform: translatey(9vw);
   }
   100% {
     opacity: 0;
-    transform: rotate(45deg) translate(20px, 20px);
+    transform: translatey(15vw);
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translatey(-15px);
+  }
+  20% {
+    opacity: 1;
+    transform: translatey(-9px);
+  }
+  80% {
+    opacity: 1;
+    transform: translatey(9px);
+  }
+  100% {
+    opacity: 0;
+    transform: translatey(-15px);
   }
 }
 .slider {
