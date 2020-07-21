@@ -5,7 +5,7 @@
         <div class="card-img__face card-img__face--front">
           <img
             class="card-movie__image"
-            :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+            :src="(`https://image.tmdb.org/t/p/original${movie.poster_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : `https://s2.best-wallpaper.net/wallpaper/1600x900/1112/404-error-desktop-not-found_1600x900.jpg`"
           />
         </div>
         <div class="card-img__face card-img__face--back">

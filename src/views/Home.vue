@@ -20,68 +20,8 @@
           </div>
         </div>
         <div class="slider">
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://s2.best-wallpaper.net/wallpaper/1920x1080/1608/Warcraft-movie-2016-HD_1920x1080.jpg"
-              alt
-            />
-            <h2 class="slider__title">Warcraft</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://i.pinimg.com/originals/21/f2/13/21f213ca88348a895e17205657bce3db.jpg"
-              alt
-            />
-            <h2 class="slider__title">Avatar</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://images.hdqwalls.com/wallpapers/how-to-train-your-dragon-the-hidden-world-movie-poster-oh.jpg"
-              alt
-            />
-            <h2 class="slider__title">How To Train Your Dragon The Hidden World</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://cdn.onebauer.media/one/empire-images/reviews_films/5ccc0a6f133d503e3a496de5/pdp2.jpg?quality=50&width=1800&ratio=16-9&resizeStyle=aspectfill&format=jpg"
-              alt
-            />
-            <h2 class="slider__title">POKÉMON Detective Pikachu</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://i0.wp.com/image.tmdb.org/t/p/original//5A2bMlLfJrAfX9bqAibOL2gCruF.jpg"
-              alt
-            />
-            <h2 class="slider__title">Aquaman</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://images7.alphacoders.com/526/thumb-1920-526236.jpg"
-              alt
-            />
-            <h2 class="slider__title">The Hobbit: The Battle of the Five Armies</h2>
-            <a class="slider__button">Discover more</a>
-          </div>
-          <div class="slider-wrapper">
-            <img
-              class="slider__image"
-              src="https://i.ytimg.com/vi/7gbEKVsKivE/maxresdefault.jpg"
-              alt
-            />
-            <h2 class="slider__title">Fantastic Beasts: Crimes of Green de Wald</h2>
-            <a class="slider__button">Discover more</a>
+          <div class="slider-wrapper" v-for="value in movies" :key="value.id" :movie="value">
+            <CardSlide :movi="value" />
           </div>
         </div>
       </section>
@@ -90,14 +30,56 @@
 </template>
 
 <script>
-/*
-import CardSlide from '@/components/posts/CardSlide.vue'
- */
+import CardSlide from '@/components/Card/CardSlide.vue'
+
 export default {
-  name: 'Home' /*  components: {    CardSlide  }, */,
-  data: () => ({
-    loading: false
-  })
+  name: 'Home',
+  components: { CardSlide },
+  data () {
+    return {
+      neededMovie: [
+        '68735',
+        '19995',
+        '122917',
+        '704132',
+        '638507',
+        '335988',
+        '297802'
+      ],
+      movies: [],
+      loading: false,
+      error: false
+    }
+  },
+  methods: {
+    async fetchMovies () {
+      for (let i = 0; i <= this.neededMovie.length; i++) {
+        try {
+          this.error = false
+          this.loading = true
+          const res = await fetch(
+            `https://api.themoviedb.org/3/movie/${this.neededMovie[i]}?api_key=f1540f730f26f48851aa3a0a12af3257&append_to_response=videos`
+          )
+          if (res.ok) {
+            const data = await res.json()
+            this.movies.push(data)
+            this.error = false
+          } else {
+            this.error = true
+            console.log(res.status, 'Movies not loaded!')
+          }
+        } catch (err) {
+          this.error = true
+          console.log('Movies not loaded!')
+        } finally {
+          this.loading = false
+        }
+      }
+    }
+  },
+  created () {
+    this.fetchMovies()
+  }
 }
 </script>
 
@@ -185,50 +167,6 @@ export default {
     opacity: 0;
     transform: translatey(-15px);
   }
-}
-.slider {
-  max-height: 100vh;
-  @include flex(flex-end, center, column);
-  &__image {
-    position: absolute;
-    object-fit: cover;
-    object-position: center center;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -2;
-  }
-  &__title {
-    position: relative;
-    @include text($H300, 700, $white);
-    text-transform: capitalize;
-    margin-bottom: 20px;
-  }
-  &__button {
-    cursor: pointer;
-    margin-bottom: 90px;
-    @include text($H50, 500, $white);
-    border: 1px solid $white;
-    letter-spacing: 1.5px;
-    padding: 10px 20px;
-    @include media {
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
-}
-.slider-wrapper {
-  position: relative;
-  display: flex !important;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh !important;
-  box-shadow: inset 0 0 1000px 1000px rgba(#000, 0.1);
 }
 .slick-dots {
   margin: auto;

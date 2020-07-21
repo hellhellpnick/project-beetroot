@@ -3,31 +3,16 @@
     <div class="input-wrapper">
       <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
-    <div v-for="value in movies" :key="value.id">
-      <div class="movie-list__wrapper" id="list">
-        <CardMovie v-if="value[0]" :movie="value[0]" />
-        <CardMovie v-if="value[1]" :movie="value[1]" />
-        <CardMovie v-if="value[2]" :movie="value[2]" />
-        <CardMovie v-if="value[3]" :movie="value[3]" />
-        <CardMovie v-if="value[4]" :movie="value[4]" />
-        <CardMovie v-if="value[5]" :movie="value[5]" />
-        <CardMovie v-if="value[6]" :movie="value[6]" />
-        <CardMovie v-if="value[7]" :movie="value[7]" />
-        <CardMovie v-if="value[8]" :movie="value[8]" />
-        <CardMovie v-if="value[9]" :movie="value[9]" />
-        <CardMovie v-if="value[10]" :movie="value[10]" />
-        <CardMovie v-if="value[11]" :movie="value[11]" />
-        <CardMovie v-if="value[12]" :movie="value[12]" />
-        <CardMovie v-if="value[13]" :movie="value[13]" />
-        <CardMovie v-if="value[14]" :movie="value[14]" />
-        <CardMovie v-if="value[15]" :movie="value[15]" />
-        <CardMovie v-if="value[16]" :movie="value[16]" />
-        <CardMovie v-if="value[17]" :movie="value[17]" />
-        <CardMovie v-if="value[18]" :movie="value[18]" />
-        <CardMovie v-if="value[19]" :movie="value[19]" />
-      </div>
+    <div class="movie-list__wrapper">
+      <CardMovie v-for="value in movies[0]" :key="value.id" :movie="value" />
     </div>
     <h2 v-if="error">{{error}}</h2>
+    <div class="movie-year">
+      <h2 class="movie-year__title">Movies {{now}}</h2>
+    </div>
+    <div class="movie-list__wrapper">
+      <CardMovie v-for="value in Allmovies" :key="value.id" :movie="value" />
+    </div>
   </div>
 </template>
 <script>
@@ -44,17 +29,15 @@ export default {
     CardMovie
   },
   data: () => ({
+    now: new Date().getFullYear(),
     search: '',
     movie: { ...initMovie },
+    Allmovies: [],
     movies: [],
     error: '',
     loading: false
   }),
   methods: {
-    check () {
-      const $list = document.getElementById('#list')
-      $list.innerHTML = ''
-    },
     onError () {
       this.error = 'movie not found'
     },
@@ -81,7 +64,39 @@ export default {
       } else {
         this.check()
       }
+    },
+
+    async fetchAllMovies () {
+      for (let i = 666750; i <= 666950; i++) {
+        try {
+          this.error = false
+          this.loading = true
+          const res = await fetch(
+            `https://api.themoviedb.org/3/movie/${i}?api_key=f1540f730f26f48851aa3a0a12af3257`
+          )
+          if (res.ok) {
+            const data = await res.json()
+            this.movie = { ...data }
+            const release = new Date(this.movie.release_date)
+            if (this.now === release.getFullYear()) {
+              this.Allmovies.push(data)
+            }
+            this.error = false
+          } else {
+            this.error = true
+            console.log(res.status, 'Movies not loaded!')
+          }
+        } catch (err) {
+          this.error = true
+          console.log('Movies not loaded!')
+        } finally {
+          this.loading = false
+        }
+      }
     }
+  },
+  created () {
+    this.fetchAllMovies()
   },
   watch: {
     search (search) {
@@ -99,16 +114,16 @@ export default {
 
 <style lang="scss">
 .input {
-  background-color: $text-about;
+  background-color: transparent;
   @include text($H50, 400, $white);
   text-transform: capitalize;
   padding: 10px;
   margin: 15px 0;
   margin-top: 50px;
-  border-radius: 20px;
   border: none;
   outline: none;
-  width: 90%;
+  border-bottom: 1px solid $text-about;
+  width: 98%;
   transition: all 0.2s ease;
   @include media {
     &:focus {
@@ -122,7 +137,7 @@ export default {
 }
 .input-wrapper {
   display: block;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 .text {
@@ -131,5 +146,15 @@ export default {
 }
 .movie-list__wrapper {
   @include flex(center, center, row, wrap);
+}
+.movie-year {
+  width: 100%;
+  padding: 20px 10px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px 1px rgba($blue, 0.7);
+  background-color: $bg-color;
+  &__title {
+    @include text($H200, 700, $white);
+  }
 }
 </style>

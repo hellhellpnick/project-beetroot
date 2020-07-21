@@ -213,6 +213,7 @@
 /*toggle button*/
 .main-menu-btn {
   position: absolute;
+  z-index: 100;
   width: 40px;
   height: 40px;
   top: 38px;
