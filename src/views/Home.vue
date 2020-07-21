@@ -85,7 +85,7 @@ export default {
 
 <style lang="scss">
 .arrow-down {
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   z-index: 10;
   left: 50%;

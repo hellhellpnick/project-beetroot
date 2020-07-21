@@ -1,11 +1,14 @@
 <template>
   <router-link :to="{name: 'Movies', params: { pid: movie.id } }">
-    <article class="card-movie animate__animated animate__slow 2s animate__backInRight">
+    <article
+      class="card-movie animate__animated animate__slow 2s animate__backInRight"
+      v-if="movie.adult === false"
+    >
       <div class="card-img">
         <div class="card-img__face card-img__face--front">
           <img
             class="card-movie__image"
-            :src="(`https://image.tmdb.org/t/p/original${movie.poster_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : `https://lh3.googleusercontent.com/proxy/deKPpCdDRz3o20p2fDe4M54k4URKcFMffk6iDGeXsS9EEWRARap2sz3mFexyFyXZbnYSyazzVIzySvxaWH5CnTa1Aset65oAJDIdql-WWviFftVTzQ0H5N0iUW8vC04i-A`"
+            :src="(`https://image.tmdb.org/t/p/original${movie.poster_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : `https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47326122111391.5630cc891bd73.jpg`"
           />
         </div>
         <div class="card-img__face card-img__face--back">
@@ -13,7 +16,27 @@
           <p class="card-img__text" :title="`${movie.overview}`">{{movie.overview}}</p>
           <img
             class="card-movie__image"
-            :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${backdrop_path}` : `https://lh3.googleusercontent.com/proxy/deKPpCdDRz3o20p2fDe4M54k4URKcFMffk6iDGeXsS9EEWRARap2sz3mFexyFyXZbnYSyazzVIzySvxaWH5CnTa1Aset65oAJDIdql-WWviFftVTzQ0H5N0iUW8vC04i-A`"
+            :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${backdrop_path}` : `https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47326122111391.5630cc891bd73.jpg`"
+          />
+        </div>
+      </div>
+      <h2 class="card-movie__title">{{movie.title}}</h2>
+      <p class="card-movie__date">{{movie.release_date}}</p>
+    </article>
+    <article class="card-movie animate__animated animate__slow 2s animate__backInRight" v-else>
+      <div class="card-img">
+        <div class="card-img__face card-img__face--front">
+          <img
+            class="card-movie__image card-movie__image--contain"
+            :src="`https://upload.wikimedia.org/wikipedia/commons/7/78/RARS_18%2B.svg`"
+          />
+        </div>
+        <div class="card-img__face card-img__face--back">
+          <h2 class="card-img__title" :title="`{{movie.title}}`">{{movie.title}}</h2>
+          <p class="card-img__text" :title="`${movie.overview}`">{{movie.overview}}</p>
+          <img
+            class="card-movie__image card-movie__image--contain"
+            :src="`https://upload.wikimedia.org/wikipedia/commons/7/78/RARS_18%2B.svg`"
           />
         </div>
       </div>
@@ -70,7 +93,11 @@ export default {
     height: 400px;
     margin-bottom: 10px;
     object-fit: cover;
+    object-position: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    &--contain {
+      object-fit: contain;
+    }
   }
 }
 .card-img {

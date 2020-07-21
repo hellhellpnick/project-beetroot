@@ -67,7 +67,7 @@ export default {
     },
 
     async fetchAllMovies () {
-      for (let i = 666750; i <= 666950; i++) {
+      for (let i = 666750; i <= 668050; i++) {
         try {
           this.error = false
           this.loading = true
@@ -82,12 +82,12 @@ export default {
               this.Allmovies.push(data)
             }
             this.error = false
-          } else {
+          } /* else {
             this.error = true
             console.log(res.status, 'Movies not loaded!')
-          }
+          } */
         } catch (err) {
-          this.error = true
+          /* this.error = true */
           console.log('Movies not loaded!')
         } finally {
           this.loading = false

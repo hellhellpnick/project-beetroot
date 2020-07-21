@@ -60,7 +60,6 @@ export default {
   }
   &__button {
     cursor: pointer;
-    margin-bottom: 90px;
     @include text($H50, 500, $white);
     border: 1px solid $white;
     letter-spacing: 1.5px;
@@ -82,5 +81,6 @@ export default {
   width: 100%;
   box-shadow: inset 0 0 1000px 1000px rgba(#000, 0.1);
   margin: 0;
+  padding: 90px 0;
 }
 </style>
