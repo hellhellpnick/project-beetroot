@@ -5,15 +5,15 @@
         <div class="card-img__face card-img__face--front">
           <img
             class="card-movie__image"
-            :src="(`https://image.tmdb.org/t/p/original${movie.poster_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : `https://s2.best-wallpaper.net/wallpaper/1600x900/1112/404-error-desktop-not-found_1600x900.jpg`"
+            :src="(`https://image.tmdb.org/t/p/original${movie.poster_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : `https://lh3.googleusercontent.com/proxy/deKPpCdDRz3o20p2fDe4M54k4URKcFMffk6iDGeXsS9EEWRARap2sz3mFexyFyXZbnYSyazzVIzySvxaWH5CnTa1Aset65oAJDIdql-WWviFftVTzQ0H5N0iUW8vC04i-A`"
           />
         </div>
         <div class="card-img__face card-img__face--back">
-          <h2 class="card-img__title">{{movie.title}}</h2>
+          <h2 class="card-img__title" :title="`{{movie.title}}`">{{movie.title}}</h2>
           <p class="card-img__text" :title="`${movie.overview}`">{{movie.overview}}</p>
           <img
             class="card-movie__image"
-            :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`"
+            :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${backdrop_path}` : `https://lh3.googleusercontent.com/proxy/deKPpCdDRz3o20p2fDe4M54k4URKcFMffk6iDGeXsS9EEWRARap2sz3mFexyFyXZbnYSyazzVIzySvxaWH5CnTa1Aset65oAJDIdql-WWviFftVTzQ0H5N0iUW8vC04i-A`"
           />
         </div>
       </div>
@@ -54,8 +54,12 @@ export default {
   &__title {
     @include text($H50, 700, #fff);
     text-transform: uppercase;
-    margin-bottom: 10px;
     text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    margin-bottom: 10px;
+    -webkit-box-orient: vertical;
   }
   &__date {
     @include text($H50, 400, $text-about);

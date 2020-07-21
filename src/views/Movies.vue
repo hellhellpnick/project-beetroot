@@ -5,7 +5,7 @@
       <div class="movie animate__animated animate__zoomInDown">
         <img
           class="movie-absolute"
-          :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`"
+          :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}` : `https://s2.best-wallpaper.net/wallpaper/1600x900/1112/404-error-desktop-not-found_1600x900.jpg`"
         />
         <div class="container container--movie">
           <div class="movie-content">
