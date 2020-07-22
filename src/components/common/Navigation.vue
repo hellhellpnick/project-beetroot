@@ -65,6 +65,7 @@
   font-family: $base-font;
   text-transform: capitalize;
   margin-bottom: 5px;
+  opacity: 0;
   @include media {
     &:hover svg {
       fill: $blue;
@@ -79,9 +80,16 @@
     transition: all 0.2s ease;
   }
 }
+.main-menu.open .navigation-links {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in 0.3s;
+  -moz-transition: opacity 0.5s ease-in 0.3s;
+  transition: opacity 0.5s ease-in 0.3s;
+}
 .main-menu {
   float: left;
   position: fixed;
+  font-family: $base-font;
   min-height: 100%;
   width: 500px;
   z-index: 1000;
@@ -150,7 +158,6 @@
 .main-menu-content {
   position: relative;
   padding: 35px 55px 35px 25px;
-  font: normal 16px/1.25 "Open Sans";
 }
 .main-menu.open .main-menu-content {
   z-index: 1002;
@@ -160,6 +167,7 @@
   opacity: 0;
   text-align: left;
   letter-spacing: 1.5px;
+  font-family: $base-font;
 }
 .main-menu.open .main-menu-logo h2 {
   opacity: 1;
@@ -208,31 +216,7 @@
   -moz-transition-delay: 0s !important;
   transition-delay: 0s !important;
 }
-.main-menu.open .main-menu-nav a.orange {
-  -webkit-transition-delay: 0.4s;
-  -moz-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-.main-menu.open .main-menu-nav a.yellow {
-  -webkit-transition-delay: 0.5s;
-  -moz-transition-delay: 0.5s;
-  transition-delay: 0.5s;
-}
-.main-menu.open .main-menu-nav a.green {
-  -webkit-transition-delay: 0.6s;
-  -moz-transition-delay: 0.6s;
-  transition-delay: 0.6s;
-}
-.main-menu.open .main-menu-nav a.purple {
-  -webkit-transition-delay: 0.7s;
-  -moz-transition-delay: 0.7s;
-  transition-delay: 0.7s;
-}
-.main-menu.open .main-menu-nav a.red {
-  -webkit-transition-delay: 0.8s;
-  -moz-transition-delay: 0.8s;
-  transition-delay: 0.8s;
-}
+
 /*toggle button*/
 .main-menu-btn {
   position: absolute;
