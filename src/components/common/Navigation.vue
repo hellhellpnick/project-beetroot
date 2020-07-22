@@ -9,7 +9,7 @@
       <div class="main-menu-content">
         <!-- main logo -->
         <div class="main-menu-logo">
-          <h2>Everything will be okay in the end</h2>
+          <h2>Everything will be fine at the end of watching</h2>
         </div>
         <!-- navigation -->
         <ul class="main-menu-nav">
@@ -36,10 +36,12 @@
         <a href="#" class="main-menu-close">
           <i class="fa fa-close"></i>&nbsp; Close menu
         </a>
+        <p class="text-menu">TM & &copy; 2020 hellpnick.</p>
+        <p class="text-menu">All right reserved.</p>
       </div>
     </div>
     <router-view />
-    <svg disply="none">
+    <svg display="none">
       <symbol id="video" viewBox="0 0 576 512">
         <path
           d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"
@@ -49,6 +51,15 @@
   </div>
 </template>
 <style lang="scss">
+.text-menu {
+  @include text($H50, 500, $white);
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 40px;
+  &:last-child {
+    margin-top: 10px;
+  }
+}
 .navigation-links {
   @include text($H50, 500, $white);
   font-family: $base-font;
