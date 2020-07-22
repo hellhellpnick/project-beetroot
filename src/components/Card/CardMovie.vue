@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'Movies', params: { pid: movie.id } }">
+  <router-link :to="{name: 'Movie', params: { pid: movie.id } }">
     <article
       class="card-movie animate__animated animate__slow 2s animate__backInRight"
       v-if="movie.adult === false"

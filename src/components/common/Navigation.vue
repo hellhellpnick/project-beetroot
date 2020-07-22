@@ -14,19 +14,21 @@
         <!-- navigation -->
         <ul class="main-menu-nav">
           <li>
-            <router-link class="navigation__links orange" to="/">
+            <router-link class="navigation-links" to="/">
               <i class="fa fa-home fa-fw"></i>&nbsp;
               Home
             </router-link>
           </li>
           <li>
-            <router-link href="#" class="red" to="/about">
+            <router-link href="#" class="navigation-links" to="/about">
               <i class="fa fa-users fa-fw"></i>&nbsp; About
             </router-link>
           </li>
           <li>
-            <router-link href="#" class="red" to="/movie">
-              <i class="fas fa-file-video"></i>&nbsp; Movie
+            <router-link class="navigation-links" href="#" to="/movies">
+              <svg class="navigation-links__svg">
+                <use xlink:href="#video" />
+              </svg> Movies
             </router-link>
           </li>
         </ul>
@@ -37,9 +39,35 @@
       </div>
     </div>
     <router-view />
+    <svg disply="none">
+      <symbol id="video" viewBox="0 0 576 512">
+        <path
+          d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"
+        />
+      </symbol>
+    </svg>
   </div>
 </template>
 <style lang="scss">
+.navigation-links {
+  @include text($H50, 500, $white);
+  font-family: $base-font;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  @include media {
+    &:hover svg {
+      fill: $blue;
+    }
+    &:hover i {
+      color: $blue;
+    }
+  }
+  &__svg {
+    @include svg(20px, $white);
+    margin-right: 7px;
+    transition: all 0.2s ease;
+  }
+}
 .main-menu {
   float: left;
   position: fixed;
@@ -194,22 +222,6 @@
   -moz-transition-delay: 0.8s;
   transition-delay: 0.8s;
 }
-.main-menu-nav a.orange:hover i {
-  color: #d35400;
-}
-.main-menu-nav a.yellow:hover i {
-  color: #f5ab35;
-}
-.main-menu-nav a.green:hover i {
-  color: #00b16a;
-}
-.main-menu-nav a.purple:hover i {
-  color: #9a12b3;
-}
-.main-menu-nav a.red:hover i {
-  color: #f64747;
-}
-
 /*toggle button*/
 .main-menu-btn {
   position: absolute;
@@ -258,7 +270,7 @@
   opacity: 0;
   display: inline-block;
   margin-top: 65px;
-  margin-left: -265px;
+  margin-left: -285px;
   font-size: 18px;
   color: #bdc3c7;
   -webkit-transform: translate(0, 100%);

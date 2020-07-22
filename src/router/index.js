@@ -27,21 +27,21 @@ const routes = [
     }
   },
   {
-    path: '/movies/:pid',
-    name: 'Movies',
-    component: Movies,
-    meta: {
-      auth: true,
-      title: 'Movies'
-    }
-  },
-  {
-    path: '/movie',
+    path: '/movie/:pid',
     name: 'Movie',
     component: Movie,
     meta: {
       auth: true,
       title: 'Movie'
+    }
+  },
+  {
+    path: '/movies',
+    name: 'Movies',
+    component: Movies,
+    meta: {
+      auth: true,
+      title: 'Movies'
     }
   }
 ]
