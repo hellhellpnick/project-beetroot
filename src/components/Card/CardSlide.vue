@@ -1,5 +1,5 @@
 <template>
-  <router-link class="size" :to="{name: 'Movies', params: { pid: movi.id } }">
+  <router-link class="size" :to="{name: 'Movie', params: { pid: movi.id } }">
     <div class="slider-wrapper">
       <img
         class="slider__image"
