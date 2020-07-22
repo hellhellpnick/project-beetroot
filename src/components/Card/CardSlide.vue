@@ -7,7 +7,7 @@
         alt
       />
       <h2 class="slider__title">{{movi.title}}</h2>
-      <router-link class="slider__button" :to="{name: 'Movies', params: { pid: movi.id } }">
+      <router-link class="slider__button" :to="{name: 'Movie', params: { pid: movi.id } }">
         <a>Discover more</a>
       </router-link>
     </div>
