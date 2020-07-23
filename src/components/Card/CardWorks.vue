@@ -272,11 +272,13 @@ export default {
   margin: 0 2rem;
   cursor: pointer;
   overflow: visible;
+  z-index: 10000;
   &__left {
     position: absolute;
     top: 50%;
     left: -20px;
     transform: translatey(-50%);
+    z-index: 10000;
   }
   &__right {
     position: absolute;

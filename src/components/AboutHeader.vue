@@ -7,7 +7,9 @@
     />
     <h2 class="about-header__about">About</h2>
     <h2 class="about-header__name">Olexander Vodoriz</h2>
-    <h3 class="about-header__subtitle">Junior Front-End developer</h3>
+    <div class="about-header__subtitle-wrapper">
+      <h3 class="about-header__subtitle">Junior Front-End developer</h3>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -23,21 +25,77 @@
     @include text($H400, 600, $white);
     font-family: $base-font;
     letter-spacing: 1.5px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: -5px;
+    &:after {
+      margin-left: 25px;
+      margin-bottom: 5px;
+      content: "";
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      background-color: $bg-color;
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0px 0px 5px 1px rgba($blue, 0.7);
+      @media screen and(min-width: 525px) {
+        width: 150px;
+      }
+      @media screen and(min-width: 850px) {
+        width: 300px;
+      }
+      @media screen and(min-width: 1200px) {
+        width: 480px;
+      }
+    }
+    &:before {
+      margin-right: 25px;
+      margin-bottom: 5px;
+      content: "";
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      background-color: $bg-color;
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
+      box-shadow: 0px 0px 5px 1px rgba($blue, 0.7);
+      @media screen and(min-width: 525px) {
+        width: 150px;
+      }
+      @media screen and(min-width: 850px) {
+        width: 300px;
+      }
+      @media screen and(min-width: 1200px) {
+        width: 480px;
+      }
+    }
   }
   &__name {
     @include text($H400, 700, $white);
     font-family: $base-font;
     letter-spacing: 1.5px;
-    text-align: left;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-transform: uppercase;
     @media screen and (min-width: $screen-tablet) {
       font-size: $H500;
+      letter-spacing: 15px;
     }
   }
   &__subtitle {
-    @include text($H200, 600, $text-about);
+    @include text($H100, 600, $white);
     font-family: $base-font;
     letter-spacing: 1.5px;
-    text-align: left;
+    text-align: center;
+    &-wrapper {
+      width: 100%;
+      padding: 2px;
+      background-color: $bg-color;
+      box-shadow: 0px 0px 5px 1px rgba($blue, 0.7);
+      border-radius: 20px;
+    }
   }
 }
 </style>

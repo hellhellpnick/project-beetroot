@@ -158,9 +158,11 @@
 .main-menu-content {
   position: relative;
   padding: 35px 55px 35px 25px;
+  display: none;
 }
 .main-menu.open .main-menu-content {
   z-index: 1002;
+  display: block;
 }
 .main-menu-logo h2 {
   @include text($H300, 500, $white);

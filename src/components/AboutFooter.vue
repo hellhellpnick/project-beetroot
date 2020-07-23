@@ -48,7 +48,7 @@
     }
   }
   &__wrapper {
-    @include flex(flex-start, center, row, wrap);
+    @include flex(center, center, row, wrap);
     margin-bottom: 20px;
   }
   &__text {

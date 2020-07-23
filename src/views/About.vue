@@ -6,7 +6,7 @@
         <section class="about animate__animated animate__zoomInDown">
           <AboutHeader></AboutHeader>
           <AboutMain></AboutMain>
-          <p class="about-main__title">My recent works</p>
+          <p class="about-main__title about-main__title--position">My recent works</p>
           <div class="card-work__container">
             <div class="card-slider">
               <CardWorks
@@ -158,15 +158,15 @@ export default {
   z-index: 2;
   @extend %container;
   background: #000;
-  box-shadow: 0 0 10px 5px #000;
+  box-shadow: 0 0 10px 1px rgba($blue, 0.7);
   @media screen and (min-width: $screen-tablet) {
     padding: 0 20px;
   }
 }
 .about-wrapper {
-  z-index: 1;
+  z-index: 1; /*
   background-image: url("https://i2.wp.com/meownauts.com/wp-content/uploads/2016/04/warcraft-movie-poster-full_987.0.0.jpg?fit=1600%2C900&ssl=1");
-
+ */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

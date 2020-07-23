@@ -72,26 +72,50 @@
   @include flex(center, flex-start, column);
   margin-bottom: 25px;
   max-width: 1200px;
+  padding-left: 10px;
+  @media screen and (min-width: $screen-tablet) {
+    padding-left: 65px;
+  }
   &__title {
     @include text($H300, 700, $white);
-    text-align: left;
+    text-align: justify;
     font-family: $base-font;
     letter-spacing: 1.5px;
     margin-bottom: 25px;
+    padding-left: 0;
+    @media screen and (min-width: $screen-tablet) {
+      padding-left: 65px;
+    }
+    &--position {
+      padding-left: 80px;
+    }
   }
   &__text {
     @include text($H200, 500, $text-about);
     font-family: $base-font;
     letter-spacing: 1.5px;
     margin-bottom: 25px;
-    max-width: 500px;
-    text-align: left;
+    max-width: 900px;
+    padding-left: 20px;
+    text-align: justify;
+    padding-left: 0;
+    @media screen and (min-width: $screen-tablet) {
+      padding-left: 65px;
+    }
+    &:nth-child(4) {
+      margin-bottom: 50px;
+    }
     &--link {
       margin-bottom: 0;
       max-width: 600px;
+      padding: 0;
     }
     &--bold {
       font-weight: 600;
+      padding-left: 0;
+      @media screen and (min-width: $screen-tablet) {
+        padding-left: 70px;
+      }
     }
   }
   &__link {
@@ -107,6 +131,10 @@
 .list-main {
   @include flex(flex-start, stretch, column);
   list-style: none;
+  padding-left: 0;
+  @media screen and (min-width: $screen-tablet) {
+    padding-left: 65px;
+  }
   &__item {
     @include flex(flex-start, center, row);
     margin-bottom: 15px;
