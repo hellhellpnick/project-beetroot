@@ -19,29 +19,42 @@
             </div>
           </div>
         </div>
-        <div class="slider">
+        <!-- <div class="slider">
           <div class="slider-wrapper" v-for="value in movies" :key="value.id" :movie="value">
             <CardSlide :movi="value" />
           </div>
-        </div>
+        </div>-->
+        <VueAgile :options="myOptions">
+          <CardSlide class="slide" v-for="value in movies" :key="value.id" :movi="value" />
+        </VueAgile>
       </section>
     </template>
   </section>
 </template>
 
 <script>
+import { VueAgile } from 'vue-agile'
 import CardSlide from '@/components/Card/CardSlide.vue'
 
 export default {
   name: 'Home',
-  components: { CardSlide },
+  components: {
+    CardSlide,
+    VueAgile
+  },
   data () {
     return {
+      myOptions: {
+        navButtons: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true
+      },
       neededMovie: [
         '68735',
         '19995',
         '122917',
-        '704132',
+        '299534',
         '638507',
         '335988',
         '297802'
@@ -84,6 +97,10 @@ export default {
 </script>
 
 <style lang="scss">
+.agile__nav-button--prev {
+  display: none;
+}
+.agile__nav-button--next,
 .arrow-down {
   position: fixed;
   cursor: pointer;
@@ -111,10 +128,12 @@ export default {
     border: 5px solid;
     border-color: #fff transparent transparent #fff;
     transform: rotate(225deg);
+    z-index: 1;
   }
 }
 .arrowSliding {
   position: absolute;
+
   -webkit-animation: slide 4s linear infinite;
   animation: slide 4s linear infinite;
 }
@@ -167,43 +186,5 @@ export default {
     opacity: 0;
     transform: translatey(-15px);
   }
-}
-.slick-dots {
-  margin: auto;
-  position: absolute;
-  right: 60px;
-  top: 40%;
-  padding: 0;
-  margin: 0;
-  @include size(10px);
-}
-.slick-dots li {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 20px;
-  @include size(10px);
-}
-.slick-dots li button::before {
-  padding: 0;
-  font-size: 5px;
-  color: transparent;
-  background-color: $text-about;
-  opacity: 1;
-  border-radius: 50%;
-  @include size(10px);
-}
-
-.slick-dots li.slick-active button::before {
-  padding: 0;
-  margin: 0;
-  color: transparent;
-  background-color: #fff;
-  opacity: 1;
-  @include size(10px);
-  border-radius: 50%;
-}
-.slick-slide {
-  border: 0;
-  outline: none;
 }
 </style>
