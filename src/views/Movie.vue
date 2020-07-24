@@ -31,7 +31,7 @@
             <div class="movie-content__wrapper movie-content__wrapper--watch">
               <p class="movie-content__text">| | |</p>
               <h2 class="movie-content__subtitle">End's beginning</h2>
-              <Button name="watch now"></Button>
+              <button v-on:click="visible=!visible" class="button">Watch now</button>
             </div>
             <MovieAbout
               :fulltext="movie.overview"
@@ -46,6 +46,17 @@
               <ListLink></ListLink>
             </div>
           </div>
+        </div>
+        <div class="video" v-show="!visible">
+          <div class="video__wrapper">
+            <span class="video__close" v-on:click="visible=!visible"></span>
+          </div>
+          <iframe
+            class="video__iframe"
+            :src="`https://www.youtube.com/embed/${movie.videos.results[0].key}`"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </template>
@@ -98,7 +109,6 @@
 import ListChoose from '@/components/common/ListChoose'
 import ListMovie from '@/components/common/ListMovie'
 import ListLink from '@/components/common/ListLink'
-import Button from '@/components/common/Button'
 import MovieTrailer from '@/components/MovieTrailer'
 import MovieAbout from '@/components/MovieAbout'
 import MovieTitle from '@/components/common/MovieTitle'
@@ -110,12 +120,12 @@ export default {
     ListMovie,
     ListLink,
     MovieTrailer,
-    Button,
     MovieTitle,
     MovieAbout
   },
   data () {
     return {
+      visible: true,
       movie: {
         id: '',
         title: '',
@@ -156,6 +166,47 @@ export default {
 </script>
 
 <style lang="scss">
+.video {
+  position: absolute;
+  z-index: 10000;
+  max-width: 1200px;
+  &__wrapper {
+    position: relative;
+  }
+  &__iframe {
+    width: 1200px;
+    height: 800px;
+  }
+  &__close {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    left: 50%;
+    margin-right: -50%;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    &:hover {
+      opacity: 1;
+    }
+    &:after,
+    &:before {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 33px;
+      width: 2px;
+      background-color: #fff;
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+  }
+}
 .movie {
   z-index: 1;
   position: relative;
@@ -347,6 +398,59 @@ export default {
   }
   @media screen and (min-width: 1140px) {
     padding: 50px 40px !important;
+  }
+}
+.button {
+  cursor: pointer;
+  --fill-color: #fff;
+  @include text($H10, 400, $white);
+  font-family: $base-font;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid rgba($white, 0.5);
+  border-radius: 20px;
+  background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+  transition: all 0.5s ease;
+  &:hover {
+    background-size: 100%;
+    color: $blue;
+    font-weight: 700;
+  }
+}
+.button:hover::after,
+.button:focus::after {
+  animation: none;
+  display: none;
+}
+.button:hover::before,
+.button:focus::before {
+  opacity: 1;
+}
+
+.button::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid $blue;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 90px;
+    height: 90px;
+    opacity: 0;
   }
 }
 </style>

@@ -91,7 +91,7 @@
   position: fixed;
   font-family: $base-font;
   min-height: 100%;
-  width: 500px;
+  width: 475px;
   z-index: 1000;
   -webkit-transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   -moz-transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);

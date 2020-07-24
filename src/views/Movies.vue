@@ -3,7 +3,7 @@
     <div class="input-wrapper">
       <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
-    <div class="movie-list__wrapper">
+    <div class="movie-list__wrapper" id="card-wrapper">
       <CardMovie v-for="value in movies[0]" :key="value.id" :movie="value" />
     </div>
     <h2 v-if="error">{{error}}</h2>
@@ -18,11 +18,6 @@
 <script>
 import CardMovie from '@/components/Card/CardMovie.vue'
 
-const initMovie = {
-  title: null,
-  poster_path: '',
-  release_date: ''
-}
 export default {
   name: 'Movies',
   components: {
@@ -30,8 +25,9 @@ export default {
   },
   data: () => ({
     now: new Date().getFullYear(),
+    text: '',
     search: '',
-    movie: { ...initMovie },
+    movie: {},
     Allmovies: [],
     movies: [],
     error: '',
@@ -50,6 +46,7 @@ export default {
             `https://api.themoviedb.org/3/search/movie?api_key=f1540f730f26f48851aa3a0a12af3257&query=${query}`
           )
           if (res.ok) {
+            this.movies = []
             const data = await res.json()
             this.movies.push(data.results)
           } else {
@@ -67,7 +64,7 @@ export default {
     },
 
     async fetchAllMovies () {
-      for (let i = 666750; i <= 668050; i++) {
+      for (let i = 666750; i <= 668750; i++) {
         try {
           this.error = false
           this.loading = true
@@ -100,13 +97,7 @@ export default {
   },
   watch: {
     search (search) {
-      const $input = document.getElementById('#input')
-      if (search) {
-        this.fetchMovie(search)
-      } else if ($input === '') {
-        const $list = document.getElementById('#list')
-        $list.innerHTML = ''
-      }
+      this.fetchMovie(search)
     }
   }
 }

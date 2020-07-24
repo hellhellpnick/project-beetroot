@@ -20,7 +20,7 @@ export default {
   props: {
     date: String,
     type: String,
-    rating: String
+    rating: Number
   }
 }
 </script>

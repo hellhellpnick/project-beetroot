@@ -19,13 +19,8 @@
             </div>
           </div>
         </div>
-        <!-- <div class="slider">
-          <div class="slider-wrapper" v-for="value in movies" :key="value.id" :movie="value">
-            <CardSlide :movi="value" />
-          </div>
-        </div>-->
         <VueAgile :options="myOptions">
-          <CardSlide class="slide" v-for="value in movies" :key="value.id" :movi="value" />
+          <CardSlide class="slide" v-for="value in movies[0]" :key="value.id" :movi="value" />
         </VueAgile>
       </section>
     </template>
@@ -47,7 +42,7 @@ export default {
       myOptions: {
         navButtons: true,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 4500,
         fade: true
       },
       neededMovie: [
@@ -66,27 +61,25 @@ export default {
   },
   methods: {
     async fetchMovies () {
-      for (let i = 0; i <= this.neededMovie.length; i++) {
-        try {
+      try {
+        this.error = false
+        this.loading = true
+        const res = await fetch(
+          'https://api.themoviedb.org/3/trending/all/day?api_key=f1540f730f26f48851aa3a0a12af3257'
+        )
+        if (res.ok) {
+          const data = await res.json()
+          this.movies.push(data.results)
           this.error = false
-          this.loading = true
-          const res = await fetch(
-            `https://api.themoviedb.org/3/movie/${this.neededMovie[i]}?api_key=f1540f730f26f48851aa3a0a12af3257&append_to_response=videos`
-          )
-          if (res.ok) {
-            const data = await res.json()
-            this.movies.push(data)
-            this.error = false
-          } else {
-            this.error = true
-            console.log(res.status, 'Movies not loaded!')
-          }
-        } catch (err) {
+        } else {
           this.error = true
-          console.log('Movies not loaded!')
-        } finally {
-          this.loading = false
+          console.log(res.status, 'Movies not loaded!')
         }
+      } catch (err) {
+        this.error = true
+        console.log('Movies not loaded!')
+      } finally {
+        this.loading = false
       }
     }
   },
@@ -99,6 +92,35 @@ export default {
 <style lang="scss">
 .agile__nav-button--prev {
   display: none;
+}
+.agile {
+  &__dots {
+    bottom: 10px;
+    flex-direction: column;
+    right: 30px;
+    position: absolute;
+  }
+  &__dot {
+    margin: 5px 0;
+    & button {
+      background-color: transparent;
+      border: 1px solid #fff;
+      cursor: pointer;
+      display: block;
+      height: 10px;
+      font-size: 0;
+      line-height: 0;
+      margin: 0;
+      padding: 0;
+      transition-duration: 0.3s;
+      width: 10px;
+    }
+
+    &--current,
+    &:hover button {
+      background-color: #fff;
+    }
+  }
 }
 .agile__nav-button--next,
 .arrow-down {
