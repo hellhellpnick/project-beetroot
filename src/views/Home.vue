@@ -122,8 +122,9 @@ export default {
     }
   }
 }
-.agile__nav-button--next,
-.arrow-down {
+
+.arrow-down,
+.agile__nav-button--next {
   position: fixed;
   cursor: pointer;
   z-index: 10;

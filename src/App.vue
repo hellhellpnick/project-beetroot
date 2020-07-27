@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <Navigation />
+    <SvgIcon />
   </div>
 </template>
 <script>
 import Navigation from '@/components/common/Navigation'
+import SvgIcon from '@/components/common/Svg'
 export default {
   name: 'app',
   components: {
-    Navigation
+    Navigation,
+    SvgIcon
   },
   computed: {
     pageTitle () {
@@ -17,7 +20,7 @@ export default {
   },
 
   watch: {
-    pageTitle: val => {
+    pageTitle: (val) => {
       document.title = val
     }
   },
