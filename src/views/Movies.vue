@@ -4,14 +4,14 @@
       <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
     <div class="movie-list__wrapper" id="card-wrapper">
-      <CardMovie v-for="value in movies[0]" :key="value.id" :movie="value" />
+      <card-movie v-for="value in movies[0]" :key="value.id" :movie="value" />
     </div>
     <h2 v-if="error">{{error}}</h2>
     <div class="movie-year">
       <h2 class="movie-year__title">Movies {{now}}</h2>
     </div>
     <div class="movie-list__wrapper">
-      <CardMovie v-for="value in Allmovies" :key="value.id" :movie="value" />
+      <card-movie v-for="value in Allmovies" :key="value.id" :movie="value" />
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ import CardMovie from '@/components/Card/CardMovie.vue'
 export default {
   name: 'Movies',
   components: {
-    CardMovie
+    'card-movie': CardMovie
   },
   data: () => ({
     now: new Date().getFullYear(),

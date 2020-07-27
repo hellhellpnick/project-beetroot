@@ -19,9 +19,9 @@
             </div>
           </div>
         </div>
-        <VueAgile :options="myOptions">
-          <CardSlide class="slide" v-for="value in movies[0]" :key="value.id" :movi="value" />
-        </VueAgile>
+        <agile :options="myOptions">
+          <card-slide class="slide" v-for="value in movies[0]" :key="value.id" :movi="value" />
+        </agile>
       </section>
     </template>
   </section>
@@ -34,8 +34,8 @@ import CardSlide from '@/components/Card/CardSlide.vue'
 export default {
   name: 'Home',
   components: {
-    CardSlide,
-    VueAgile
+    'card-slide': CardSlide,
+    agile: VueAgile
   },
   data () {
     return {

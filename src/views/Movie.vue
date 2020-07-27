@@ -15,35 +15,35 @@
                   <use xlink:href="#logo" />
                 </svg>
               </span>
-              <MovieTitle :title="movie.title"></MovieTitle>
+              <movie-title :title="movie.title"></movie-title>
             </div>
             <div class="movie-content__wrapper">
-              <ListMovie
+              <list-movie
                 :date="movie.release_date"
                 :type="movie.status"
                 :rating="movie.vote_average"
-              ></ListMovie>
+              ></list-movie>
             </div>
           </div>
 
           <div class="movie-content">
-            <ListChoose></ListChoose>
+            <list-choose></list-choose>
             <div class="movie-content__wrapper movie-content__wrapper--watch">
               <p class="movie-content__text">| | |</p>
               <h2 class="movie-content__subtitle">End's beginning</h2>
               <button v-on:click="visible=!visible" class="button">Watch now</button>
             </div>
-            <MovieAbout
+            <movie-about
               :fulltext="movie.overview"
               :text="movie.overview"
               :author="movie.production_companies[0].name"
-            ></MovieAbout>
+            ></movie-about>
           </div>
 
           <div class="movie-content__wrapper">
-            <MovieTrailer></MovieTrailer>
+            <movie-trailer></movie-trailer>
             <div class="movie-content__wrapper">
-              <ListLink></ListLink>
+              <list-link></list-link>
             </div>
           </div>
         </div>
@@ -74,12 +74,12 @@ import MovieTitle from '@/components/common/MovieTitle'
 export default {
   name: 'Movies',
   components: {
-    ListChoose,
-    ListMovie,
-    ListLink,
-    MovieTrailer,
-    MovieTitle,
-    MovieAbout
+    'list-choose': ListChoose,
+    'list-movie': ListMovie,
+    'list-link': ListLink,
+    'movie-trailer': MovieTrailer,
+    'movie-title': MovieTitle,
+    'movie-about': MovieAbout
   },
   data () {
     return {

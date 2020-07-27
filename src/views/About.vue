@@ -4,43 +4,43 @@
     <template v-else>
       <div class="about-wrapper">
         <section class="about animate__animated animate__zoomInDown">
-          <AboutHeader></AboutHeader>
-          <AboutMain></AboutMain>
+          <about-header></about-header>
+          <about-main></about-main>
           <p class="about-main__title about-main__title--position">My recent works</p>
           <div class="card-work__container">
             <div class="card-slider">
-              <CardWorks
+              <card-work
                 title="Website Cahee"
                 text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
                 state="Article"
                 date="01 Apr 2020"
                 link="https://hellhellpnick.github.io/Cahee/"
                 :image="require('@/assets/card-home/cahee.jpg')"
-              ></CardWorks>
-              <CardWorks
+              ></card-work>
+              <card-work
                 title="Website Tajam"
                 text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
                 state="Article"
                 date="16 Apr 2020"
                 link="https://hellhellpnick.github.io/front-end/"
                 :image="require('@/assets/card-home/tajam.jpg')"
-              ></CardWorks>
-              <CardWorks
+              ></card-work>
+              <card-work
                 title="Website Bhromaon"
                 text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
                 state="Article"
                 :image="require('@/assets/card-home/bhromaon.jpg')"
                 date="29 Apr 2020"
                 link="http://hellhellpnick.github.io/bhromaon/"
-              ></CardWorks>
-              <CardWorks
+              ></card-work>
+              <card-work
                 title="Website Monticello"
                 text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
                 state="Article"
                 date="29 May 2020"
                 link="https://hellhellpnick.github.io/monticello/"
                 :image="require(`@/assets/card-home/monticello.jpg`)"
-              ></CardWorks>
+              ></card-work>
             </div>
 
             <div>
@@ -128,7 +128,7 @@
               </a>
             </div>
 
-            <AboutFooter></AboutFooter>
+            <about-footer></about-footer>
           </div>
         </section>
       </div>
@@ -143,10 +143,10 @@ import CardWorks from '@/components/Card/CardWorks'
 export default {
   name: 'About',
   components: {
-    AboutFooter,
-    AboutMain,
-    CardWorks,
-    AboutHeader
+    'about-footer': AboutFooter,
+    'about-main': AboutMain,
+    'card-work': CardWorks,
+    'about-header': AboutHeader
   },
   data: () => ({
     loading: false
