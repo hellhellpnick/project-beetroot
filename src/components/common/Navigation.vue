@@ -36,6 +36,13 @@
         <a href="#" class="main-menu-close">
           <i class="fa fa-close"></i>&nbsp; Close menu
         </a>
+        <div class="switch">
+          <p class="switch__text">Switch color</p>
+          <input type="checkbox" id="toggle" />
+          <label for="toggle" class="toggleWrapper">
+            <div class="toggle"></div>
+          </label>
+        </div>
         <p class="text-menu">TM & &copy; 2020 hellpnick.</p>
         <p class="text-menu">All right reserved.</p>
       </div>
@@ -43,7 +50,141 @@
     <router-view />
   </div>
 </template>
+<script>
+export default {
+  name: 'Navigation'
+}
+</script>
 <style lang="scss">
+.switch {
+  @include flex(flex-start, center, row);
+  margin-top: 25px;
+  margin-bottom: -5px;
+  margin-left: 15px;
+  &__text {
+    @include text(500, $H100, $blue);
+    text-transform: uppercase;
+    margin-right: 5px;
+  }
+}
+
+.toggleWrapper {
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $blue;
+  box-shadow: 0 20px 20px 0 rgba($blue, 0.3);
+
+  &:active {
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 15px 15px 0 rgba($blue, 0.5);
+
+    .toggle {
+      height: 10px;
+      width: 10px;
+    }
+  }
+
+  .toggle {
+    transition: all 0.2s ease-in-out;
+    height: 10px;
+    width: 10px;
+    background-color: transparent;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+
+    animation: red 0.7s linear forwards;
+  }
+}
+input:checked {
+  & ~ .switch__text {
+    color: $red;
+  }
+  & ~ .background {
+    background-color: #f9faf7;
+  }
+  & + .toggleWrapper {
+    background-color: $red;
+    box-shadow: 0 20px 20px 0 rgba($red, 0.3);
+
+    &:active {
+      box-shadow: 0 15px 15px 0 rgba($red, 0.5);
+    }
+
+    .toggle {
+      width: 0;
+      background-color: #fff;
+      border-color: transparent;
+      border-radius: 30px;
+      animation: green 0.7s linear forwards !important;
+    }
+  }
+}
+input {
+  display: none;
+}
+@keyframes red {
+  0% {
+    height: 15px;
+    width: 0;
+    border-width: 2px;
+  }
+  55% {
+    height: 13px;
+    width: 15px;
+    border-width: 2px;
+  }
+
+  70% {
+    height: 15px;
+    width: 15px;
+    border-width: 2px;
+  }
+
+  85% {
+    height: 10px;
+    width: 15px;
+    border-width: 2px;
+  }
+
+  100% {
+    height: 15px;
+    width: 15px;
+    border-width: 2px;
+    margin-left: 2px;
+  }
+}
+
+@keyframes green {
+  0% {
+    height: 20px;
+    width: 20px;
+    border-width: 2px;
+  }
+  25%,
+  55%,
+  85% {
+    height: 25px;
+    width: 5px;
+    border-width: 2px;
+  }
+
+  40%,
+  70%,
+  100% {
+    height: 25px;
+    width: 0;
+    border-width: 2px;
+  }
+}
 .text-menu {
   @include text($H50, 500, $white);
   text-align: left;

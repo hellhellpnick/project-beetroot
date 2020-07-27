@@ -42,7 +42,6 @@
                 :image="require(`@/assets/card-home/monticello.jpg`)"
               ></card-work>
             </div>
-
             <div>
               <svg
                 class="arrow-svg arrow-svg__left"
