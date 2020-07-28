@@ -2,16 +2,18 @@
   <div class="about-main">
     <h2 class="about-main__title">Introduction</h2>
     <p class="about-main__text">Hello, I'm Olexander Vodoriz 👋</p>
-    <p
-      class="about-main__text"
-    >I'm a Junior Front-End developer, who is interested in web technologies and video games.</p>
     <p class="about-main__text">
-      In my free time I study new technologies. Recently I saw
-      <a
-        class="about-main__link"
-        href="https://threejs.org/"
-      >Three.js</a>
-      this world of animation from the front - end caught me. I want to conquer it :)
+      Holla, I hope you find what you like on my site,
+      I am a junior Front-End developer. In addition to the front-end, I am interested in everything related to pc, web technologies and video games. At the expense of the gameplay of many games, it is only obscene. In my free time I study new technologies, additional reality vr. I recently saw
+      <a class="about-main__link" href="https://threejs.org/">Three.js</a>, this world of animation got me interested. I want to defeat him. Do not mind trying Eight360 Nova and the desire to practice in spase x is present, but for now, the augmented reality designer is not against river in the near future.
+      The developer of various layers of augmented reality around a certain territory, taking into account its landscape, historical and cultural context. Some are about dragons and witches, and some during the time of Terrible, Einstein, some are the dark past of Zuckerberg and Elon Musk. Artificial intelligence is a priority, the trend of the near future
+    </p>
+    <p class="about-main__text">
+      All in all Digital Artisan sole proprietor, micro-production owner of customized creations
+      is able to understand as accurately as possible what the consumer of a particular industry wants, is ready to offer solution options and, at the output, provide the creation with a complete digital product according to the maximum number of the customer's initial parameters
+      contact me and i will help you create with vision and listening to ideas everything is ok.
+      True, you can choose only one option cheaply, quickly or efficiently.
+      Portfolio and data attached additional information in personal blog, help the vr world)
     </p>
     <h2 class="about-main__title">Uses</h2>
     <p class="about-main__text about-main__text--bold">What do I use during development?</p>
