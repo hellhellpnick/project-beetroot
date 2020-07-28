@@ -1,12 +1,13 @@
 <template>
-  <div class="movie-content__wrapper movie-content__wrapper--trailer">
+  <div class="movie-content__wrapper movie-content__wrapper--trailer" @click="$emit('visible')">
     <span class="circle"></span>
     <p class="movie-content__watch">watch trailer</p>
   </div>
 </template>
 <script>
 export default {
-  name: 'MovieTrailer'
+  name: 'MovieTrailer',
+  props: ['visible']
 }
 </script>
 <style lang="scss">

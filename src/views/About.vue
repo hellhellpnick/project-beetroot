@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="about">
     <loader v-if="loading" />
     <template v-else>
       <div class="about-wrapper" :class="{_red: isRed}">
@@ -141,6 +141,7 @@ import AboutHeader from '@/components/AboutHeader'
 import CardWorks from '@/components/Card/CardWorks'
 export default {
   name: 'About',
+  props: ['isRed'],
   components: {
     'about-footer': AboutFooter,
     'about-main': AboutMain,
@@ -149,13 +150,7 @@ export default {
   },
   data: () => ({
     loading: false
-  }),
-  props: {
-    isRed: {
-      type: Boolean,
-      require: true
-    }
-  }
+  })
 }
 </script>
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="input-wrapper">
+    <div class="input__wrapper">
       <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
     <div class="movie-list__wrapper" id="card-wrapper">
@@ -125,11 +125,11 @@ export default {
     @include text($H50, 400, $white);
     text-transform: capitalize;
   }
-}
-.input-wrapper {
-  display: block;
-  width: 80%;
-  margin: 0 auto;
+  &__wrapper {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 .text {
   color: $white;

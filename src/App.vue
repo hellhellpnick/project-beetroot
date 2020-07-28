@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navigation :isRed.sync="isRed" @switch_color="switch_color" />
+    <Navigation @switch-color="isRed= !isRed" :isRed="isRed" />
     <SvgIcon />
   </div>
 </template>
@@ -18,17 +18,11 @@ export default {
       isRed: false
     }
   },
-  methods: {
-    switch_color: function () {
-      this.isRed = !this.isRed
-    }
-  },
   computed: {
     pageTitle () {
       return this.$route.meta.title
     }
   },
-
   watch: {
     pageTitle: (val) => {
       document.title = val

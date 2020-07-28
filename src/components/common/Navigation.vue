@@ -22,16 +22,15 @@
             </li>
             <li>
               <router-link
-                href="#"
                 class="navigation-links"
-                :isRed.sync="isRed.Boolean"
-                to="/about"
+                :to="{name: 'About', params: {isRed}}"
+                :isRed="isRed"
               >
                 <i class="fa fa-users fa-fw"></i>&nbsp; About
               </router-link>
             </li>
             <li>
-              <router-link class="navigation-links" href="#" to="/movies">
+              <router-link class="navigation-links" to="/movies">
                 <svg class="navigation-links__svg">
                   <use xlink:href="#video" />
                 </svg> Movies
@@ -39,13 +38,18 @@
             </li>
           </ul>
 
-          <a href="#" class="main-menu-close">
+          <a class="main-menu-close">
             <i class="fa fa-close"></i>&nbsp; Close menu
           </a>
           <div class="switch">
             <p class="switch__text">Switch color</p>
             <div class="toggle__wrapper">
-              <input type="checkbox" id="toggle" @click="$emit(switch_color)" />
+              <input
+                class="switch-input"
+                type="checkbox"
+                id="toggle"
+                @click="$emit('switch-color')"
+              />
               <label for="toggle" class="toggleWrapper">
                 <div class="toggle"></div>
               </label>
@@ -65,7 +69,7 @@ export default {
   props: {
     isRed: {
       type: Boolean,
-      required: true
+      require: true
     }
   }
 }
@@ -115,13 +119,14 @@ export default {
     cursor: pointer;
 
     &__wrapper {
-      width: 35px;
-      height: 35px;
+      @include flex(center, center);
+      width: 40px;
+      height: 40px;
     }
     animation: red 0.7s linear forwards;
   }
 }
-input:checked {
+.switch-input:checked {
   & ~ .switch__text {
     color: $red;
   }
@@ -145,7 +150,7 @@ input:checked {
     }
   }
 }
-input {
+.switch-input {
   display: none;
 }
 @keyframes red {
@@ -429,8 +434,8 @@ input {
       color: $red;
     }
   }
-  .main-menu-btn i {
-    &:hover {
+  .main-menu-btn {
+    &:hover i {
       color: $red;
     }
   }
@@ -452,6 +457,29 @@ input {
   .about {
     box-shadow: none;
     box-shadow: 0 0 10px 1px rgba($red, 0.7);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: $red;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $red;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
   }
 }
 </style>

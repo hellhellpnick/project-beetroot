@@ -45,15 +45,6 @@ export default {
         autoplaySpeed: 4500,
         fade: true
       },
-      neededMovie: [
-        '68735',
-        '19995',
-        '122917',
-        '299534',
-        '638507',
-        '335988',
-        '297802'
-      ],
       movies: [],
       loading: false,
       error: false
@@ -90,9 +81,6 @@ export default {
 </script>
 
 <style lang="scss">
-.agile__nav-button--prev {
-  display: none;
-}
 .agile {
   &__dots {
     bottom: 10px;

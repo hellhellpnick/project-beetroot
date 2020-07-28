@@ -3,6 +3,17 @@
     <loader v-if="loading" />
     <template v-else>
       <div class="movie animate__animated animate__zoomInDown">
+        <div class="video" v-show="!visible">
+          <div class="video__wrapper">
+            <span class="video__close" @click="visible=!visible"></span>
+          </div>
+          <iframe
+            class="video__iframe"
+            :src="`https://www.youtube.com/embed/${movie.videos.results[0].key}`"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
         <img
           class="movie-absolute"
           :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}` : `https://s2.best-wallpaper.net/wallpaper/1600x900/1112/404-error-desktop-not-found_1600x900.jpg`"
@@ -31,7 +42,7 @@
             <div class="movie-content__wrapper movie-content__wrapper--watch">
               <p class="movie-content__text">| | |</p>
               <h2 class="movie-content__subtitle">End's beginning</h2>
-              <button v-on:click="visible=!visible" class="button">Watch now</button>
+              <button @click="visible=!visible" class="button">Watch now</button>
             </div>
             <movie-about
               :fulltext="movie.overview"
@@ -41,22 +52,11 @@
           </div>
 
           <div class="movie-content__wrapper">
-            <movie-trailer></movie-trailer>
+            <movie-trailer @visible="visible= !visible" :visible="visible"></movie-trailer>
             <div class="movie-content__wrapper">
               <list-link></list-link>
             </div>
           </div>
-        </div>
-        <div class="video" v-show="!visible">
-          <div class="video__wrapper">
-            <span class="video__close" v-on:click="visible=!visible"></span>
-          </div>
-          <iframe
-            class="video__iframe"
-            :src="`https://www.youtube.com/embed/${movie.videos.results[0].key}`"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
         </div>
       </div>
     </template>
@@ -126,28 +126,54 @@ export default {
 <style lang="scss">
 .video {
   position: absolute;
-  z-index: 10000;
-  max-width: 1200px;
-  &__wrapper {
-    position: relative;
+  z-index: 10;
+  @include size(300px);
+  border-radius: 20px;
+  @media screen and (min-width: $screen-tablet) {
+    @include size(600px);
   }
-  &__iframe {
+  @media screen and (min-width: $screen-desktop) {
+    @include size(800px);
+  }
+  @media screen and (min-width: $screen-desktop-large) {
     width: 1200px;
     height: 800px;
+  }
+  &__wrapper {
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    z-index: 10000;
+    &:hover {
+      .video__close {
+        opacity: 1;
+      }
+    }
+  }
+  &__iframe {
+    @include size(300px);
+    border-radius: 20px;
+    @media screen and (min-width: $screen-tablet) {
+      @include size(600px);
+    }
+    @media screen and (min-width: $screen-desktop) {
+      @include size(800px);
+    }
+    @media screen and (min-width: $screen-desktop-large) {
+      width: 1200px;
+      height: 800px;
+    }
   }
   &__close {
     position: absolute;
     cursor: pointer;
-    top: 15px;
+    top: 20px;
     left: 50%;
     margin-right: -50%;
     width: 32px;
     height: 32px;
     opacity: 0;
     transition: all 0.2s ease;
-    &:hover {
-      opacity: 1;
-    }
     &:after,
     &:before {
       position: absolute;
