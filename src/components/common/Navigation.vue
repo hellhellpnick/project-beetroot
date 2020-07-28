@@ -1,50 +1,59 @@
 <template>
   <div>
     <div class="main-menu">
-      <div class="main-menu-form">
-        <div class="main-menu-btn">
-          <i class="fa fa-bars"></i>
+      <div :class="{_red: isRed}">
+        <div class="main-menu-form">
+          <div class="main-menu-btn">
+            <i class="fa fa-bars"></i>
+          </div>
         </div>
-      </div>
-      <div class="main-menu-content">
-        <!-- main logo -->
-        <div class="main-menu-logo">
-          <h2>Everything will be fine at the end of watching</h2>
-        </div>
-        <!-- navigation -->
-        <ul class="main-menu-nav">
-          <li>
-            <router-link class="navigation-links" to="/">
-              <i class="fa fa-home fa-fw"></i>&nbsp;
-              Home
-            </router-link>
-          </li>
-          <li>
-            <router-link href="#" class="navigation-links" to="/about">
-              <i class="fa fa-users fa-fw"></i>&nbsp; About
-            </router-link>
-          </li>
-          <li>
-            <router-link class="navigation-links" href="#" to="/movies">
-              <svg class="navigation-links__svg">
-                <use xlink:href="#video" />
-              </svg> Movies
-            </router-link>
-          </li>
-        </ul>
+        <div class="main-menu-content">
+          <!-- main logo -->
+          <div class="main-menu-logo">
+            <h2>Everything will be fine at the end of watching</h2>
+          </div>
+          <!-- navigation -->
+          <ul class="main-menu-nav">
+            <li>
+              <router-link class="navigation-links" to="/">
+                <i class="fa fa-home fa-fw"></i>&nbsp;
+                Home
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                href="#"
+                class="navigation-links"
+                :isRed.sync="isRed.Boolean"
+                to="/about"
+              >
+                <i class="fa fa-users fa-fw"></i>&nbsp; About
+              </router-link>
+            </li>
+            <li>
+              <router-link class="navigation-links" href="#" to="/movies">
+                <svg class="navigation-links__svg">
+                  <use xlink:href="#video" />
+                </svg> Movies
+              </router-link>
+            </li>
+          </ul>
 
-        <a href="#" class="main-menu-close">
-          <i class="fa fa-close"></i>&nbsp; Close menu
-        </a>
-        <div class="switch">
-          <p class="switch__text">Switch color</p>
-          <input type="checkbox" id="toggle" />
-          <label for="toggle" class="toggleWrapper">
-            <div class="toggle"></div>
-          </label>
+          <a href="#" class="main-menu-close">
+            <i class="fa fa-close"></i>&nbsp; Close menu
+          </a>
+          <div class="switch">
+            <p class="switch__text">Switch color</p>
+            <div class="toggle__wrapper">
+              <input type="checkbox" id="toggle" @click="$emit(switch_color)" />
+              <label for="toggle" class="toggleWrapper">
+                <div class="toggle"></div>
+              </label>
+            </div>
+          </div>
+          <p class="text-menu">TM & &copy; 2020 hellpnick.</p>
+          <p class="text-menu">All right reserved.</p>
         </div>
-        <p class="text-menu">TM & &copy; 2020 hellpnick.</p>
-        <p class="text-menu">All right reserved.</p>
       </div>
     </div>
     <router-view />
@@ -52,7 +61,13 @@
 </template>
 <script>
 export default {
-  name: 'Navigation'
+  name: 'Navigation',
+  props: {
+    isRed: {
+      type: Boolean,
+      required: true
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -67,7 +82,6 @@ export default {
     margin-right: 5px;
   }
 }
-
 .toggleWrapper {
   z-index: 3;
   display: flex;
@@ -80,7 +94,6 @@ export default {
   border-radius: 50%;
   background-color: $blue;
   box-shadow: 0 20px 20px 0 rgba($blue, 0.3);
-
   &:active {
     width: 35px;
     height: 35px;
@@ -101,6 +114,10 @@ export default {
     border-radius: 50%;
     cursor: pointer;
 
+    &__wrapper {
+      width: 35px;
+      height: 35px;
+    }
     animation: red 0.7s linear forwards;
   }
 }
@@ -249,16 +266,6 @@ input {
   -moz-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
-.main-menu.open .main-menu-form:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1px;
-  height: 100%;
-  background: $blue;
-  box-shadow: 0px 0px 6px 1px rgba($blue, 0.7);
-}
 .main-menu-form {
   position: absolute;
   top: 0;
@@ -270,11 +277,11 @@ input {
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   -moz-transition: all 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition: all 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-
   -webkit-transform-origin: 100% 0;
   -moz-transform-origin: 100% 0;
   transform-origin: 100% 0;
 
+  box-shadow: 0px 0px 6px 2px rgba($blue, 0.8);
   -webkit-transform: skewX(-38deg);
   -moz-transform: skewX(-38deg);
   transform: skewX(-38deg);
@@ -410,5 +417,41 @@ input {
 }
 .main-menu-close:hover {
   color: $blue;
+}
+
+._red {
+  .navigation-links {
+    color: red !important;
+
+    &:hover svg,
+    &:hover i {
+      fill: $red;
+      color: $red;
+    }
+  }
+  .main-menu-btn i {
+    &:hover {
+      color: $red;
+    }
+  }
+  .main-menu-close {
+    &:hover {
+      color: $red;
+    }
+    &:hover i {
+      color: $red;
+    }
+  }
+  .switch__text {
+    color: $red;
+  }
+  .main-menu-form {
+    box-shadow: none;
+    box-shadow: 0px 0px 6px 2px rgba($red, 0.8);
+  }
+  .about {
+    box-shadow: none;
+    box-shadow: 0 0 10px 1px rgba($red, 0.7);
+  }
 }
 </style>

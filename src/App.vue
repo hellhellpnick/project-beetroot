@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Navigation :isRed.sync="isRed" @switch_color="switch_color" />
     <SvgIcon />
   </div>
 </template>
@@ -12,6 +12,16 @@ export default {
   components: {
     Navigation,
     SvgIcon
+  },
+  data: () => {
+    return {
+      isRed: false
+    }
+  },
+  methods: {
+    switch_color: function () {
+      this.isRed = !this.isRed
+    }
   },
   computed: {
     pageTitle () {

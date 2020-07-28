@@ -2,7 +2,7 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
-      <div class="about-wrapper">
+      <div class="about-wrapper" :class="{_red: isRed}">
         <section class="about animate__animated animate__zoomInDown">
           <about-header></about-header>
           <about-main></about-main>
@@ -149,7 +149,13 @@ export default {
   },
   data: () => ({
     loading: false
-  })
+  }),
+  props: {
+    isRed: {
+      type: Boolean,
+      require: true
+    }
+  }
 }
 </script>
 <style lang="scss">
