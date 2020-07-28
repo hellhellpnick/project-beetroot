@@ -81,6 +81,9 @@ export default {
 </script>
 
 <style lang="scss">
+.agile__nav-button--prev {
+  display: none;
+}
 .agile {
   &__dots {
     bottom: 10px;

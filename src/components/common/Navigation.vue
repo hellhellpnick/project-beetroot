@@ -410,6 +410,7 @@ export default {
   transform: translate(0, 0);
 }
 .main-menu-close {
+  cursor: pointer;
   opacity: 0;
   display: inline-block;
   margin-top: 65px;
