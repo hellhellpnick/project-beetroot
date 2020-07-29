@@ -5,12 +5,12 @@
       <use xlink:href="#heart" />
     </svg>
     <p class="about-footer__text">using:</p>
-    <a class="about-footer__link" href="https://github.com/">
+    <a class="about-footer__link" href="https://github.com/" target="__blank">
       <img class="about-footer__link-image" src="https://vuejs.org/images/logo.png" alt="vue" />
       <span class="about-footer__link-text">Vue</span>
       <p class="about-footer__link-text about-footer__link-text--color">,</p>
     </a>
-    <a class="about-footer__link" href="https://github.com/">
+    <a class="about-footer__link" href="https://github.com/" target="__blank">
       <img
         class="about-footer__link-image"
         src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"

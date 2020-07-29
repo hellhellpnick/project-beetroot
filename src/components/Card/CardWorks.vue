@@ -8,7 +8,7 @@
         <div class="card-work">
           <img class="card-work__box" :src="image" />
           <div class="card-work-container">
-            <a class="card-work__link" :href="`${link}`">
+            <a class="card-work__link" :href="`${link}`" target="__blank">
               <h3 class="card-work__subtitle">Creating My</h3>
               <h2 class="card-work__title">{{ title }}</h2>
               <p class="card-work__text">{{ text }}</p>
