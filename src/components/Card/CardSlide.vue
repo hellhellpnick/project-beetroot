@@ -64,8 +64,10 @@ export default {
     border: 1px solid $white;
     letter-spacing: 1.5px;
     padding: 10px 20px;
+    transition: all 0.2s ease;
     @include media {
       &:hover {
+        border-radius: 5px;
         transform: scale(1.05);
       }
     }
