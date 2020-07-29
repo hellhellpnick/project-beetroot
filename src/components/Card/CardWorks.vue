@@ -186,86 +186,6 @@ export default {
     }
   }
 }
-.card-dots {
-  z-index: 2;
-  position: absolute;
-  list-style: none;
-  display: block;
-  text-align: center;
-  padding: 0;
-  width: 100%;
-  outline: none;
-
-  li {
-    position: relative;
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    margin: 0;
-    margin-right: 30px;
-    padding: 0;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    outline: none;
-  }
-  button {
-    border: 0;
-    background: transparent;
-    display: block;
-    height: 10px;
-    width: 10px;
-    outline: none;
-    line-height: 0;
-    font-size: 0;
-    color: transparent;
-    padding: 5px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    &:hover,
-    &:focus {
-      outline: none;
-      border-radius: 50%;
-      background-color: #fff;
-      transition: all 0.5s ease;
-      outline: none;
-      &:before,
-      &:before {
-        opacity: 1;
-        border-radius: 50%;
-        background-color: #fff;
-        transition: all 0.5s ease;
-        outline: none;
-      }
-    }
-
-    &:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      content: "•";
-      width: 10px;
-      height: 10px;
-      font-family: "card";
-      font-size: 6px;
-      text-align: center;
-      color: black;
-      opacity: 0.25;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  }
-}
-.card-dots li.slick-active button::before,
-.card-dots li.slick-active button:hover {
-  padding: 0;
-  color: transparent;
-  background-color: #fff;
-  border-radius: 50%;
-  opacity: 1;
-  @include size(10px);
-}
 .arrow-svg {
   @include svg(50px, $white);
   height: auto;
@@ -320,31 +240,6 @@ export default {
   100% {
     transform: scaleX(0);
     transform-origin: right;
-  }
-}
-@keyframes arrow-anim {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  5% {
-    transform: translateX(-0.1rem);
-  }
-  100% {
-    transform: translateX(1rem);
-    opacity: 0;
-  }
-}
-
-@keyframes arrow-fixed-anim {
-  5% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 1;
   }
 }
 </style>

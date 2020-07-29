@@ -7,94 +7,41 @@
           <about-header></about-header>
           <about-main></about-main>
           <p class="about-main__title about-main__title--position">My recent works</p>
-          <div class="card-work__container">
-            <div class="card-slider">
-              <card-work
-                title="Website Cahee"
-                text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-                state="Article"
-                date="01 Apr 2020"
-                link="https://hellhellpnick.github.io/Cahee/"
-                :image="require('@/assets/card-home/cahee.jpg')"
-              ></card-work>
-              <card-work
-                title="Website Tajam"
-                text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-                state="Article"
-                date="16 Apr 2020"
-                link="https://hellhellpnick.github.io/front-end/"
-                :image="require('@/assets/card-home/tajam.jpg')"
-              ></card-work>
-              <card-work
-                title="Website Bhromaon"
-                text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
-                state="Article"
-                :image="require('@/assets/card-home/bhromaon.jpg')"
-                date="29 Apr 2020"
-                link="http://hellhellpnick.github.io/bhromaon/"
-              ></card-work>
-              <card-work
-                title="Website Monticello"
-                text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
-                state="Article"
-                date="29 May 2020"
-                link="https://hellhellpnick.github.io/monticello/"
-                :image="require(`@/assets/card-home/monticello.jpg`)"
-              ></card-work>
-            </div>
-            <div>
-              <svg
-                class="arrow-svg arrow-svg__left"
-                width="18px"
-                height="17px"
-                viewBox="0 0 18 17"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <g
-                  id="prev"
-                  transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)"
-                >
-                  <polygon
-                    class="arrow__polygon"
-                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
-                  />
-                  <polygon
-                    class="arrow__fixed"
-                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
-                  />
-                  <path
-                    d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"
-                  />
-                </g>
-              </svg>
 
-              <svg
-                class="arrow-svg arrow-svg__right"
-                width="18px"
-                height="17px"
-                viewBox="-1 0 18 17"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <g>
-                  <polygon
-                    class="arrow__polygon"
-                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
-                  />
-                  <polygon
-                    class="arrow__fixed"
-                    points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"
-                  />
-                  <path
-                    d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"
-                  />
-                </g>
-              </svg>
-            </div>
-          </div>
+          <agile :options="myOptions" class="bottom">
+            <card-work
+              title="Website Cahee"
+              text="A complete Website Cahee. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+              state="Article"
+              date="01 Apr 2020"
+              link="https://hellhellpnick.github.io/Cahee/"
+              :image="require('@/assets/card-home/cahee.jpg')"
+            ></card-work>
+            <card-work
+              title="Website Tajam"
+              text="A complete Website Tajam. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+              state="Article"
+              date="16 Apr 2020"
+              link="https://hellhellpnick.github.io/front-end/"
+              :image="require('@/assets/card-home/tajam.jpg')"
+            ></card-work>
+            <card-work
+              title="Website Bhromaon"
+              text="A complete Website Bhromaon. There used pure HTML/CSS. Also, the navigation menu is made on CSS"
+              state="Article"
+              :image="require('@/assets/card-home/bhromaon.jpg')"
+              date="29 Apr 2020"
+              link="http://hellhellpnick.github.io/bhromaon/"
+            ></card-work>
+            <card-work
+              title="Website Monticello"
+              text="A complete Website Monticello. There used HTML/CSS/JSS. Also, the navigation menu is made on CSS/JS"
+              state="Article"
+              date="29 May 2020"
+              link="https://hellhellpnick.github.io/monticello/"
+              :image="require(`@/assets/card-home/monticello.jpg`)"
+            ></card-work>
+          </agile>
           <div class="about-footer">
             <div class="about-footer__wrapper">
               <p class="about-footer__text">Follow me on:</p>
@@ -117,10 +64,14 @@
                 <span class="about-footer__link-text">Github</span>
                 <p class="about-footer__link-text about-footer__link-text--color">,</p>
               </a>
-              <a class="about-footer__link" href="https://github.com/" target="__blank">
+              <a
+                class="about-footer__link"
+                href="https://www.instagram.com/?hl=ru"
+                target="__blank"
+              >
                 <img
                   class="about-footer__link-image"
-                  src="https://www.instagram.com/?hl=ru"
+                  src="https://i.pinimg.com/originals/66/41/c9/6641c94e15a0be37af49a4250386c03e.png"
                   alt="instagram"
                 />
                 <span class="about-footer__link-text">Instagram</span>
@@ -139,6 +90,8 @@ import AboutFooter from '@/components/AboutFooter'
 import AboutMain from '@/components/AboutMain'
 import AboutHeader from '@/components/AboutHeader'
 import CardWorks from '@/components/Card/CardWorks'
+import { VueAgile } from 'vue-agile'
+
 export default {
   name: 'About',
   props: ['isRed'],
@@ -146,14 +99,26 @@ export default {
     'about-footer': AboutFooter,
     'about-main': AboutMain,
     'card-work': CardWorks,
-    'about-header': AboutHeader
+    'about-header': AboutHeader,
+    agile: VueAgile
   },
-  data: () => ({
-    loading: false
-  })
+  data () {
+    return {
+      myOptions: {
+        navButtons: false,
+        autoplay: true,
+        autoplaySpeed: 4500,
+        fade: true
+      },
+      loading: false
+    }
+  }
 }
 </script>
 <style lang="scss">
+.bottom {
+  margin-bottom: 20px;
+}
 .about {
   z-index: 2;
   @extend %container;

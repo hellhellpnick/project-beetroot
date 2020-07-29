@@ -2,6 +2,21 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
+      <div class="movie animate__animated animate__fadeIn" v-if="movie.adult === true">
+        <div class="movie-adult" v-show="adult==true">
+          <div class="movie-adult__wrapper">
+            <div class="movie-adult__content">
+              <h2 class="movie-adult__content-title">Adult film</h2>
+              <p class="movie-adult__content-text">Are you sure you are eighteen?</p>
+              <div class="movie-adult__content-box">
+                <button class="movie-adult__content-button" @click="adult == !adult">Yes</button>
+                <button class="movie-adult__content-button" to="/movies">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="movie animate__animated animate__fadeIn">
         <div class="video animate__animated animate__slow 2s animate__flipInX" v-show="!visible">
           <div class="video__wrapper">
@@ -16,7 +31,7 @@
         </div>
         <img
           class="movie-absolute"
-          :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}` : `https://s2.best-wallpaper.net/wallpaper/1600x900/1112/404-error-desktop-not-found_1600x900.jpg`"
+          :src="(`https://image.tmdb.org/t/p/original${movie.backdrop_path}` !== `https://image.tmdb.org/t/p/originalnull`) ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}` : `/assets/404_desktop.jpg`"
         />
         <div class="container container--movie">
           <div class="movie-content">
@@ -90,6 +105,7 @@ export default {
   data () {
     return {
       visible: true,
+      adult: true,
       movie: {
         id: '',
         title: '',
@@ -130,6 +146,44 @@ export default {
 </script>
 
 <style lang="scss">
+.movie-adult {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #000;
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 0;
+  }
+  &__content {
+    @include flex(center, center, column);
+    background-color: $bg-color;
+    &-title {
+      @include text($H300, 700, $white);
+      text-transform: uppercase;
+      font-family: $base-font;
+      margin-bottom: 10px;
+    }
+    &-text {
+      @include text($H100, 500, $white);
+      font-family: $base-font;
+      margin-bottom: 15px;
+    }
+    &-box {
+      @include flex(center, center, row);
+    }
+    &-button {
+      @include text($H100, 500, $white);
+      padding: 10px 15px;
+      border: 1px solid #ffffff;
+      outline: none;
+    }
+  }
+}
 .video {
   position: absolute;
   z-index: 10;
@@ -173,9 +227,10 @@ export default {
   &__close {
     position: absolute;
     cursor: pointer;
-    top: 20px;
     left: 50%;
     margin-right: -50%;
+    transform: translate(-50%, -50%);
+    top: 20px;
     width: 32px;
     height: 32px;
     opacity: 0;
@@ -217,8 +272,14 @@ export default {
 .movie-content {
   @include flex(center, center, column, wrap);
   border-radius: 10px;
+  padding-top: 0;
   padding: 5px;
   margin-bottom: 70px;
+  @media screen and (max-width: $screen-tablet) {
+    &:first-child {
+      padding-top: 20px;
+    }
+  }
   @media screen and (min-width: $screen-tablet) {
     justify-content: space-between;
     flex-direction: row;
@@ -339,6 +400,10 @@ export default {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 600;
+    padding-top: 0;
+    @media screen and (max-width: $screen-tablet) {
+      padding-top: 20px;
+    }
   }
   &__subtitle {
     @include text($H100, 400, $white);

@@ -129,6 +129,10 @@ export default {
     display: block;
     width: 80%;
     margin: 0 auto;
+    @media screen and (max-width: $screen-tablet) {
+      width: 70%;
+      margin-right: 20px;
+    }
   }
 }
 .text {

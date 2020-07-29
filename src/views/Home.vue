@@ -114,8 +114,8 @@ export default {
   }
 }
 
-.arrow-down,
-.agile__nav-button--next {
+.agile__nav-button--next,
+.arrow-down {
   position: fixed;
   cursor: pointer;
   z-index: 10;
@@ -123,17 +123,20 @@ export default {
   margin-right: -50%;
   transform: translatex(-50%);
   bottom: -50px;
-  background-color: rgba(#000, 0.7);
+  color: $white;
+  background-color: rgba(#000, 0.25);
   border-radius: 50%;
   padding: 20px 20px 10px 20px;
   width: 100px;
   height: 100px;
+  z-index: 1001;
 }
 .arrow {
   position: absolute;
   top: 10px;
   left: 35%;
   transform: translate(-50%, -50%);
+  z-index: 1002;
 }
 .arrow-down {
   &__animated {
