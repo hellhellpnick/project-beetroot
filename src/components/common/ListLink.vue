@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-link">
+  <ul class="list-link animate__animated animate__slow 2s animate__fadeInBottomRight">
     <li class="list-link__item">
       <svg class="list-link__item-svg">
         <use xlink:href="#instagram" />

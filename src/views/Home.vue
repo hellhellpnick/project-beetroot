@@ -2,7 +2,7 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
-      <section class="home animate__animated animate__zoomInDown">
+      <section class="home animate__animated animate__fadeIn">
         <div class="arrow-down">
           <div class="arrow">
             <div class="arrowSliding">

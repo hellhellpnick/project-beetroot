@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <div class="input__wrapper">
+    <div class="input__wrapper animate__animated animate__slow 2s animate__backInRight">
       <input type="text" v-model="search" class="input" placeholder="Film name" />
     </div>
     <div class="movie-list__wrapper" id="card-wrapper">
       <card-movie v-for="value in movies[0]" :key="value.id" :movie="value" />
     </div>
     <h2 v-if="error">{{error}}</h2>
-    <div class="movie-year">
+    <div class="movie-year animate__animated animate__slow 2s animate__fadeIn">
       <h2 class="movie-year__title">Movies {{now}}</h2>
     </div>
     <div class="movie-list__wrapper">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="list-choose">
+    <ul class="list-choose animate__animated animate__slow 2s animate__fadeInLeft">
       <li class="list-choose__item activat">
         <a class="list-choose__item-link">Trailer</a>
       </li>

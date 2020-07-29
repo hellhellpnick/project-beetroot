@@ -2,8 +2,8 @@
   <section>
     <loader v-if="loading" />
     <template v-else>
-      <div class="movie animate__animated animate__zoomInDown">
-        <div class="video" v-show="!visible">
+      <div class="movie animate__animated animate__fadeIn">
+        <div class="video animate__animated animate__slow 2s animate__flipInX" v-show="!visible">
           <div class="video__wrapper">
             <span class="video__close" @click="visible=!visible"></span>
           </div>
@@ -20,7 +20,9 @@
         />
         <div class="container container--movie">
           <div class="movie-content">
-            <div class="movie-content__wrapper">
+            <div
+              class="movie-content__wrapper animate__animated animate__slow 2s animate__fadeInTopLeft"
+            >
               <span class="movie-content__svg-wrapper">
                 <svg class="movie-content__svg">
                   <use xlink:href="#logo" />
@@ -28,7 +30,9 @@
               </span>
               <movie-title :title="movie.title"></movie-title>
             </div>
-            <div class="movie-content__wrapper">
+            <div
+              class="movie-content__wrapper animate__animated animate__slow 2s animate__fadeInTopRight"
+            >
               <list-movie
                 :date="movie.release_date"
                 :type="movie.status"
@@ -39,7 +43,9 @@
 
           <div class="movie-content">
             <list-choose></list-choose>
-            <div class="movie-content__wrapper movie-content__wrapper--watch">
+            <div
+              class="movie-content__wrapper movie-content__wrapper--watch animate__animated animate__slow 2s animate__fadeInTopRight"
+            >
               <p class="movie-content__text">| | |</p>
               <h2 class="movie-content__subtitle">End's beginning</h2>
               <button @click="visible=!visible" class="button">Watch now</button>

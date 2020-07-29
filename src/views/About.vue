@@ -3,7 +3,7 @@
     <loader v-if="loading" />
     <template v-else>
       <div class="about-wrapper" :class="{_red: isRed}">
-        <section class="about animate__animated animate__zoomInDown">
+        <section class="about animate__animated animate__fadeIn">
           <about-header></about-header>
           <about-main></about-main>
           <p class="about-main__title about-main__title--position">My recent works</p>

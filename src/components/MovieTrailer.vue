@@ -1,5 +1,8 @@
 <template>
-  <div class="movie-content__wrapper movie-content__wrapper--trailer" @click="$emit('visible')">
+  <div
+    class="movie-content__wrapper movie-content__wrapper--trailer animate__animated animate__slow 2s animate__fadeInBottomLeft"
+    @click="$emit('visible')"
+  >
     <span class="circle"></span>
     <p class="movie-content__watch">watch trailer</p>
   </div>

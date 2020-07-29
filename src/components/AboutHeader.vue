@@ -5,10 +5,14 @@
       src="https://scontent.fdnk1-2.fna.fbcdn.net/v/t1.0-0/c100.0.206.206a/p206x206/104587135_2309076262734800_433423695232416193_o.jpg?_nc_cat=110&_nc_sid=da31f3&_nc_ohc=Xrk2HEd7qDQAX8PzKKg&_nc_ht=scontent.fdnk1-2.fna&oh=abddd590775d173c89bc2cd89a77fc3f&oe=5F134316"
       alt
     />
-    <h2 class="about-header__about">About</h2>
-    <h2 class="about-header__name">Olexander Vodoriz</h2>
+    <h2 class="about-header__about animate__animated animate__slow 2s animate__backInRight">About</h2>
+    <h2
+      class="about-header__name animate__animated animate__slow 2s animate__backInLeft"
+    >Olexander Vodoriz</h2>
     <div class="about-header__subtitle-wrapper">
-      <h3 class="about-header__subtitle">Junior Front-End developer</h3>
+      <h3
+        class="about-header__subtitle animate__animated animate__slow 2s animate__backInRight"
+      >Junior Front-End developer</h3>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animate__animated animate__slow 2s animate__fadeInRight">
     <div class="movie-content__wrapper movie-content__wrapper--row">
       <svg class="movie-content__svg-author">
         <use xlink:href="#author" />
