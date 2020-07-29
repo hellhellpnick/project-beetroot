@@ -119,7 +119,7 @@ export default {
     cursor: pointer;
 
     &__wrapper {
-      @include flex(center, center);
+      @include flex(flex-start, stretch);
       width: 40px;
       height: 40px;
     }
@@ -222,6 +222,9 @@ export default {
   text-transform: capitalize;
   margin-bottom: 5px;
   opacity: 0;
+  &li {
+    @include flex(flex-start, stretch);
+  }
   @include media {
     &:hover svg {
       fill: $blue;
@@ -414,7 +417,7 @@ export default {
   opacity: 0;
   display: inline-block;
   margin-top: 65px;
-  margin-left: -285px;
+  margin-left: -265px;
   font-size: 18px;
   color: #bdc3c7;
   -webkit-transform: translate(0, 100%);
