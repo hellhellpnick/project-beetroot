@@ -1,24 +1,3 @@
-function SliderWorks() {
-  $(".card-slider").slick({
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    prevArrow: $(".arrow-svg__left"),
-    nextArrow: $(".arrow-svg__right"),
-    dotsClass: "card-dots",
-    responsive: [
-      {
-        breakpoint: 700,
-        settings: {
-          dots: false,
-          arrows: false
-        }
-      }
-    ]
-  });
-}
 var MainMenu = (function() {
   var MainMenu = function(config) {
     config = config || {};
@@ -67,7 +46,6 @@ var MainMenu = (function() {
 })();
 
 $(document).on("ready", function() {
-  SliderWorks();
   var mainMenu = new MainMenu({
     menu: ".main-menu",
     toggleBtn: ".main-menu-btn",

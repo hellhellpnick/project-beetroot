@@ -129,14 +129,14 @@ export default {
   padding: 20px 20px 10px 20px;
   width: 100px;
   height: 100px;
-  z-index: 1001;
+  z-index: 1;
 }
 .arrow {
   position: absolute;
   top: 10px;
   left: 35%;
   transform: translate(-50%, -50%);
-  z-index: 1002;
+  z-index: 12;
 }
 .arrow-down {
   &__animated {
