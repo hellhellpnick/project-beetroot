@@ -20,9 +20,10 @@
       <div class="movie animate__animated animate__fadeIn">
         <div class="video animate__animated animate__slow 2s animate__flipInX" v-show="!visible">
           <div class="video__wrapper">
-            <span class="video__close" @click="visible=!visible"></span>
+            <span class="video__close" @click="(visible=!visible), controlVideo()"></span>
           </div>
           <iframe
+            id="Youtube"
             class="video__iframe"
             :src="`https://www.youtube.com/embed/${movie.videos.results[0].key}`"
             frameborder="0"
@@ -105,7 +106,7 @@ export default {
   data () {
     return {
       visible: true,
-      adult: true,
+      adult: false,
       movie: {
         id: '',
         title: '',
@@ -116,6 +117,10 @@ export default {
     }
   },
   methods: {
+    controlVideo () {
+      const player = document.getElementById('Youtube')
+      player.pauseVideo()
+    },
     async fetchMovies () {
       try {
         this.error = false
